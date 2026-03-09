@@ -1,0 +1,2972 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Você Merece Ser Amada — Reconheça e Saia de um Relacionamento Abusivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rosa:       #C0376A;
+      --rosa-claro: #F2789F;
+      --rosa-pale:  #FDE8EF;
+      --roxo:       #7B3F8C;
+      --roxo-claro: #B57CC1;
+      --creme:      #FFF8F5;
+      --escuro:     #1A1A2E;
+      --cinza:      #5A5A72;
+      --branco:     #FFFFFF;
+      --dourado:    #D4A843;
+      --sombra:     0 8px 40px rgba(192,55,106,0.15);
+      --sombra-lg:  0 20px 60px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--creme);
+      color: var(--escuro);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+    img { max-width: 100%; display: block; }
+
+    /* ===== UTILITÁRIOS ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .text-center { text-align: center; }
+    .text-rosa { color: var(--rosa); }
+    .text-roxo { color: var(--roxo); }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    /* ===== BARRA TOPO ===== */
+    .top-bar {
+      background: linear-gradient(90deg, var(--rosa), var(--roxo));
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .top-bar span { font-weight: 700; }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 50%, #1A1A2E 100%);
+      color: #fff;
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(192,55,106,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 30%, rgba(123,63,140,0.2) 0%, transparent 60%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: rgba(192,55,106,0.3);
+      border: 1px solid rgba(192,55,106,0.6);
+      color: var(--rosa-claro);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rosa-claro);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: var(--rosa-claro);
+      line-height: 1;
+    }
+
+    .hero-stat span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* BOOK MOCKUP */
+    .book-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      perspective: 1200px;
+    }
+
+    .book {
+      width: 280px;
+      height: 380px;
+      position: relative;
+      transform-style: preserve-3d;
+      transform: rotateY(-20deg) rotateX(5deg);
+      filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5));
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: rotateY(-20deg) rotateX(5deg) translateY(0); }
+      50%       { transform: rotateY(-20deg) rotateX(5deg) translateY(-16px); }
+    }
+
+    .book-cover {
+      width: 280px;
+      height: 380px;
+      background: linear-gradient(160deg, #8B1A4A 0%, #C0376A 40%, #7B3F8C 100%);
+      border-radius: 4px 12px 12px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .book-cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .book-cover-icon {
+      font-size: 3.5rem;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+
+    .book-cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .book-cover-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .book-cover-line {
+      width: 40px;
+      height: 2px;
+      background: rgba(255,255,255,0.4);
+      margin: 12px auto;
+      border-radius: 2px;
+    }
+
+    .book-spine {
+      position: absolute;
+      left: -18px;
+      top: 0;
+      width: 18px;
+      height: 380px;
+      background: linear-gradient(90deg, #5a0f2e, #8B1A4A);
+      border-radius: 4px 0 0 4px;
+      transform: rotateY(-90deg) translateX(-9px);
+      transform-origin: right;
+    }
+
+    /* ===== PROBLEMA ===== */
+    .problema {
+      background: linear-gradient(180deg, var(--rosa-pale) 0%, var(--creme) 100%);
+      padding: 80px 0;
+    }
+
+    .problema-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .problema h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--escuro);
+      margin-bottom: 20px;
+    }
+
+    .problema p {
+      color: var(--cinza);
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    .quote-block {
+      border-left: 4px solid var(--rosa);
+      padding: 20px 24px;
+      background: rgba(192,55,106,0.06);
+      border-radius: 0 12px 12px 0;
+      margin-top: 24px;
+    }
+
+    .quote-block p {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--escuro);
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .stat-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: var(--sombra);
+      border-top: 4px solid var(--rosa);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--rosa);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-card p {
+      font-size: 0.85rem;
+      color: var(--cinza);
+      margin: 0;
+    }
+
+    /* ===== SINAIS ===== */
+    .sinais {
+      padding: 100px 0;
+      background: var(--creme);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--escuro);
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      color: var(--cinza);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .sinais-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .sinal-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 24px;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(192,55,106,0.1);
+      overflow: hidden;
+    }
+
+    .sinal-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--rosa), var(--roxo));
+    }
+
+    .sinal-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sombra-lg);
+    }
+
+    .sinal-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .sinal-num {
+      position: absolute;
+      top: 20px; right: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(192,55,106,0.08);
+      line-height: 1;
+    }
+
+    .sinal-card h3 {
+      font-size: 1.1rem;
+      color: var(--rosa);
+      margin-bottom: 10px;
+    }
+
+    .sinal-card p {
+      font-size: 0.92rem;
+      color: var(--cinza);
+      line-height: 1.65;
+    }
+
+    /* ===== ALERTAS ===== */
+    .alertas {
+      background: linear-gradient(135deg, #1A1A2E, #2D0A1E);
+      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alertas::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 90% 50%, rgba(192,55,106,0.15) 0%, transparent 70%);
+    }
+
+    .alertas-inner { position: relative; z-index: 2; }
+
+    .alertas h2 {
+      color: #fff;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .alertas > .container > p {
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      margin-bottom: 56px;
+      font-size: 1.05rem;
+    }
+
+    .comportamentos-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .comp-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(192,55,106,0.25);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: background 0.3s;
+    }
+
+    .comp-item:hover { background: rgba(192,55,106,0.12); }
+
+    .comp-item-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .comp-item-text h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 6px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+    }
+
+    .comp-item-text p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* ===== COMO MERECE SER TRATADA ===== */
+    .merece {
+      padding: 100px 0;
+      background: var(--rosa-pale);
+    }
+
+    .merece-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .merece h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--escuro);
+      margin-bottom: 24px;
+    }
+
+    .merece-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+
+    .merece-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      color: var(--escuro);
+    }
+
+    .check-icon {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .flor-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .flor-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(192,55,106,0.12);
+    }
+
+    .flor-card:nth-child(2) { margin-top: 24px; }
+    .flor-card:nth-child(4) { margin-top: -24px; }
+
+    .flor-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .flor-card h4 { font-size: 1rem; color: var(--rosa); margin-bottom: 6px; font-family: 'Inter', sans-serif; font-weight: 700; }
+    .flor-card p { font-size: 0.85rem; color: var(--cinza); }
+
+    /* ===== DEPOIMENTOS ===== */
+    .depoimentos {
+      padding: 90px 0;
+      background: var(--creme);
+    }
+
+    .depo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .depo-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      position: relative;
+    }
+
+    .depo-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px; left: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--rosa-pale);
+      line-height: 1;
+    }
+
+    .depo-stars { color: var(--dourado); font-size: 1rem; margin-bottom: 16px; }
+
+    .depo-text {
+      color: var(--cinza);
+      font-size: 0.95rem;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .depo-author { display: flex; align-items: center; gap: 12px; }
+
+    .depo-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .depo-name { font-weight: 600; font-size: 0.95rem; color: var(--escuro); }
+    .depo-city { font-size: 0.8rem; color: var(--cinza); }
+
+    /* ===== OFERTA DO EBOOK ===== */
+    .oferta {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 60%, #1A1A2E 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .oferta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 60% at 15% 50%, rgba(123,63,140,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 60% at 85% 50%, rgba(192,55,106,0.2) 0%, transparent 70%);
+    }
+
+    .oferta-inner {
+      position: relative;
+      z-index: 2;
+    }
+
+    .oferta-box {
+      max-width: 860px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(192,55,106,0.3);
+      border-radius: 32px;
+      padding: 60px 48px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .oferta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .oferta-box > p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* EBOOK PREVIEW */
+    .ebook-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .ebook-3d {
+      width: 200px;
+      height: 270px;
+      background: linear-gradient(160deg, #8B1A4A 0%, #C0376A 45%, #7B3F8C 100%);
+      border-radius: 3px 10px 10px 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      text-align: center;
+      box-shadow: -6px 6px 0 rgba(0,0,0,0.3), -12px 12px 0 rgba(0,0,0,0.2), 0 20px 50px rgba(192,55,106,0.4);
+      flex-shrink: 0;
+    }
+
+    .ebook-3d .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .ebook-3d .title { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; font-weight: 700; margin-bottom: 6px; }
+    .ebook-3d .sub { font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .ebook-conteudo { text-align: left; }
+    .ebook-conteudo h3 { color: #fff; font-size: 1.3rem; margin-bottom: 20px; }
+
+    .ebook-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .ebook-item-dot {
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ebook-item p { color: rgba(255,255,255,0.8); font-size: 0.92rem; }
+
+    /* PREÇO */
+    .preco-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .preco-de {
+      text-decoration: line-through;
+      color: rgba(255,255,255,0.4);
+      font-size: 1.1rem;
+    }
+
+    .preco-por {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .preco-por small {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .preco-valor {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .preco-valor sup { font-size: 1.5rem; vertical-align: super; }
+    .preco-valor sub { font-size: 1.2rem; }
+
+    .preco-badge {
+      background: var(--dourado);
+      color: #1A1A2E;
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    /* CTA BOTÃO */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #E8467A, #C0376A);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 20px 48px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 32px rgba(192,55,106,0.5);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: pulse-cta 2.5s ease-in-out infinite;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    @keyframes pulse-cta {
+      0%, 100% { box-shadow: 0 8px 32px rgba(192,55,106,0.5); }
+      50%       { box-shadow: 0 12px 48px rgba(192,55,106,0.75); }
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(192,55,106,0.65);
+    }
+
+    .btn-cta .arrow { font-size: 1.3rem; }
+
+    .garantia-text {
+      margin-top: 20px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+    }
+
+    .garantia-text span { color: var(--dourado); font-weight: 600; }
+
+    /* ===== GARANTIA ===== */
+    .garantia {
+      padding: 70px 0;
+      background: var(--rosa-pale);
+    }
+
+    .garantia-box {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      background: #fff;
+      border-radius: 24px;
+      padding: 40px 48px;
+      box-shadow: var(--sombra);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .garantia-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+
+    .garantia-box h3 { font-size: 1.6rem; color: var(--escuro); margin-bottom: 10px; }
+    .garantia-box p { color: var(--cinza); font-size: 1rem; }
+
+    /* ===== FAQ ===== */
+    .faq { padding: 90px 0; background: var(--creme); }
+
+    .faq-list { max-width: 720px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 16px; }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px;
+      cursor: pointer;
+      user-select: none;
+      gap: 16px;
+    }
+
+    .faq-q span {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--escuro);
+      flex: 1;
+    }
+
+    .faq-toggle {
+      width: 28px; height: 28px;
+      background: var(--rosa-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--rosa);
+      font-size: 1.2rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--rosa); color: #fff; }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s;
+      padding: 0 28px;
+    }
+
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 28px 22px; }
+    .faq-a p { color: var(--cinza); font-size: 0.95rem; line-height: 1.7; }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final {
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      padding: 90px 0;
+      text-align: center;
+    }
+
+    .cta-final h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 3rem); margin-bottom: 16px; }
+    .cta-final p { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 580px; margin: 0 auto 40px; }
+
+    .btn-cta-branco {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--rosa);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 20px 48px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transition: transform 0.25s, box-shadow 0.25s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .btn-cta-branco:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--escuro);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--rosa-claro); text-decoration: none; }
+    footer strong { color: #fff; }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 900px) {
+      .hero-inner         { grid-template-columns: 1fr; text-align: center; }
+      .hero p             { margin: 0 auto 36px; }
+      .hero-stats         { justify-content: center; }
+      .book-wrap          { display: none; }
+      .problema-grid      { grid-template-columns: 1fr; }
+      .sinais-grid        { grid-template-columns: 1fr 1fr; }
+      .comportamentos-list{ grid-template-columns: 1fr; }
+      .merece-grid        { grid-template-columns: 1fr; }
+      .depo-grid          { grid-template-columns: 1fr; }
+      .oferta-box         { padding: 40px 24px; }
+      .ebook-preview      { flex-direction: column; align-items: center; }
+      .ebook-conteudo     { text-align: center; }
+      .garantia-box       { flex-direction: column; text-align: center; padding: 36px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .sinais-grid  { grid-template-columns: 1fr; }
+      .stat-cards   { grid-template-columns: 1fr; }
+      .flor-visual  { grid-template-columns: 1fr; }
+      .flor-card:nth-child(2), .flor-card:nth-child(4) { margin-top: 0; }
+    }
+
+    /* =====================================================
+       CHECKOUT MODAL
+    ===================================================== */
+
+    .ck-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(8,4,18,0.88);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none; /* iOS Fix: display:none garante que nenhum toque é interceptado quando fechado */
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .ck-overlay.active {
+      opacity: 1;
+    }
+
+    .ck-modal {
+      background: linear-gradient(160deg, #1a172e 0%, #280c1c 100%);
+      border-radius: 20px;
+      max-width: 960px;
+      width: 100%;
+      overflow: hidden;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+      margin: auto;
+      transform: translateY(32px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    .ck-overlay.active .ck-modal {
+      transform: translateY(0) scale(1);
+    }
+
+    /* ---- HEADER ---- */
+    .ck-header {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 100%);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .ck-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ck-header-left span {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .ck-secure-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(46,204,113,0.18);
+      border: 1px solid rgba(46,204,113,0.4);
+      color: #2ecc71;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .ck-close {
+      width: 34px;
+      height: 34px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .ck-close:hover {
+      background: rgba(192,55,106,0.35);
+      color: #fff;
+    }
+
+    /* ---- BODY (2 columns) ---- */
+    .ck-body {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      align-items: stretch;
+    }
+
+    /* ---- LEFT PANEL ---- */
+    .ck-left {
+      background: linear-gradient(160deg, #1A1A2E 0%, #2D0A1E 100%);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .ck-product-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(192,55,106,0.25);
+      border-radius: 16px;
+      padding: 22px 20px;
+    }
+
+    .ck-product-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(192,55,106,0.25);
+      border: 1px solid rgba(192,55,106,0.4);
+      color: #F2789F;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .ck-product-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .ck-book-mini {
+      width: 64px;
+      height: 88px;
+      background: linear-gradient(160deg, #8B1A4A 0%, #C0376A 45%, #7B3F8C 100%);
+      border-radius: 2px 8px 8px 2px;
+      box-shadow: -3px 3px 0 rgba(0,0,0,0.3), -6px 6px 0 rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .ck-product-info h4 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+
+    .ck-product-info .ck-product-price {
+      color: var(--rosa-claro);
+      font-size: 0.85rem;
+    }
+
+    .ck-product-info .ck-product-price s {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+      margin-right: 6px;
+    }
+
+    .ck-includes {
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ck-includes-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+    }
+
+    .ck-includes-item::before {
+      content: '✓';
+      width: 16px;
+      height: 16px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ORDER BUMP WRAP — oculto até escolher pagamento */
+    .ck-bump-wrap {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-8px);
+      /* padding-top garante espaço para o tag absoluto de -11px não ser cortado */
+      padding-top: 14px;
+      margin-top: -14px; /* compensa visualmente para não gerar espaço extra quando oculto */
+      transition: max-height 0.55s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.45s ease 0.08s,
+                  transform 0.45s ease 0.08s;
+    }
+    .ck-bump-wrap.revealed {
+      max-height: 620px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ORDER BUMP */
+    .ck-bump {
+      border: 2px dashed rgba(212,168,67,0.5);
+      border-radius: 16px;
+      padding: 18px 16px;
+      background: rgba(212,168,67,0.06);
+      position: relative;
+    }
+
+    .ck-bump-tag {
+      position: absolute;
+      top: -11px;
+      left: 14px;
+      background: linear-gradient(135deg, #D4A843, #e8b94f);
+      color: #1A1A2E;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: 100px;
+    }
+
+    .ck-bump-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .ck-bump-book {
+      width: 48px;
+      height: 64px;
+      background: linear-gradient(160deg, #2D0A1E 0%, #7B3F8C 60%, #C0376A 100%);
+      border-radius: 2px 6px 6px 2px;
+      box-shadow: -2px 2px 0 rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .ck-bump-info h5 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dourado);
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .ck-bump-info p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .ck-bump-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .ck-bump-price .from {
+      color: rgba(255,255,255,0.3);
+      text-decoration: line-through;
+      font-size: 0.78rem;
+    }
+
+    .ck-bump-price .to {
+      color: #2ecc71;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .ck-bump-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .ck-bump-checkbox input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--rosa);
+      margin-top: 1px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .ck-bump-checkbox label {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.8rem;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .ck-bump-checkbox label strong {
+      color: var(--dourado);
+    }
+
+    /* GUARANTEE TAG */
+    .ck-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(46,204,113,0.07);
+      border: 1px solid rgba(46,204,113,0.2);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .ck-guarantee .icon { font-size: 1.5rem; flex-shrink: 0; }
+
+    .ck-guarantee p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .ck-guarantee strong { color: #2ecc71; }
+
+    /* TRUST SECTION — pagamentos aceitos + segurança */
+    .ck-trust-section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 16px;
+      margin-top: auto;
+    }
+
+    .ck-trust-label {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 2px;
+    }
+
+    .ck-payment-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .ck-pay-logo {
+      height: 22px;
+      padding: 3px 8px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .ck-pay-logo svg { display: block; }
+
+    .ck-security-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .ck-ssl-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(46,204,113,0.08);
+      border: 1px solid rgba(46,204,113,0.2);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #4ade80;
+      letter-spacing: 0.04em;
+    }
+
+    .ck-ssl-badge svg { flex-shrink: 0; }
+
+    .ck-support-link {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .ck-support-link a {
+      color: var(--rosa-claro);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .ck-support-link a:hover { text-decoration: underline; }
+
+    /* ---- RIGHT PANEL ---- */
+    .ck-right {
+      background: linear-gradient(160deg, #1f1b35 0%, #2a0d1e 100%);
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* Section titles */
+    .ck-section-title {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Form fields */
+    .ck-field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+
+    .ck-field label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .ck-field input,
+    .ck-field select {
+      height: 44px;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 0 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.06);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    .ck-field input::placeholder { color: rgba(255,255,255,0.25); }
+
+    .ck-field select option { background: #1f1b35; color: #fff; }
+
+    .ck-field input:focus,
+    .ck-field select:focus {
+      border-color: var(--rosa-claro);
+      box-shadow: 0 0 0 3px rgba(242,120,159,0.18);
+    }
+
+    .ck-field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* Payment tabs */
+    .ck-pay-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .ck-pay-tab {
+      border: 2px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 12px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      background: rgba(255,255,255,0.05);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      touch-action: manipulation;
+    }
+
+    .ck-pay-tab:hover {
+      border-color: rgba(242,120,159,0.4);
+      color: rgba(255,255,255,0.75);
+    }
+
+    .ck-pay-tab.active {
+      border-color: var(--rosa-claro);
+      background: rgba(192,55,106,0.2);
+      color: var(--rosa-claro);
+    }
+
+    .ck-pay-tab .tab-icon { font-size: 1.1rem; }
+
+    /* PIX panel */
+    .ck-pix-panel { display: none; }
+    .ck-pix-panel.active { display: block; }
+
+    .ck-pix-info {
+      background: rgba(46,204,113,0.07);
+      border: 1px solid rgba(46,204,113,0.22);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .ck-pix-qr {
+      width: 110px;
+      height: 110px;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .ck-pix-info h5 {
+      color: #4ade80;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .ck-pix-info p {
+      color: rgba(74,222,128,0.75);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .ck-pix-key {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(46,204,113,0.07);
+      border: 1px dashed rgba(46,204,113,0.3);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+    .ck-pix-key span {
+      flex: 1;
+      font-size: 0.78rem;
+      color: rgba(74,222,128,0.9);
+      word-break: break-all;
+      font-family: monospace;
+    }
+
+    .ck-copy-btn {
+      background: rgba(46,204,113,0.15);
+      border: 1px solid rgba(46,204,113,0.35);
+      color: #4ade80;
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .ck-copy-btn:hover { background: rgba(46,204,113,0.25); }
+
+    .ck-pix-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .ck-pix-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .ck-pix-step .step-num {
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Card panel */
+    .ck-card-panel { display: none; }
+    .ck-card-panel.active { display: block; }
+
+    /* Boleto panel */
+    .ck-boleto-panel { display: none; }
+    .ck-boleto-panel.active { display: block; }
+
+    .ck-boleto-info {
+      background: rgba(212,168,67,0.07);
+      border: 1px solid rgba(212,168,67,0.22);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+    }
+
+    .ck-boleto-warn {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: rgba(212,168,67,0.9);
+      background: rgba(212,168,67,0.1);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .ck-boleto-warn .warn-icon { font-size: 1rem; flex-shrink: 0; }
+
+    .ck-boleto-barcode {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(212,168,67,0.07);
+      border: 1px dashed rgba(212,168,67,0.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+    }
+
+    .ck-boleto-barcode span {
+      flex: 1;
+      font-size: 0.72rem;
+      color: rgba(212,168,67,0.85);
+      word-break: break-all;
+      font-family: monospace;
+      line-height: 1.4;
+    }
+
+    .ck-copy-boleto-btn {
+      background: rgba(212,168,67,0.15);
+      border: 1px solid rgba(212,168,67,0.4);
+      color: var(--dourado);
+      border-radius: 8px;
+      padding: 5px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .ck-copy-boleto-btn:hover { background: rgba(212,168,67,0.28); }
+
+    /* Order summary */
+    .ck-summary {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+
+    .ck-summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      padding: 4px 0;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .ck-summary-row.bump-row { color: #4ade80; font-weight: 500; }
+    .ck-summary-row.bump-row { display: none; }
+    .ck-summary-row.bump-row.visible { display: flex; }
+
+    .ck-summary-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 8px 0;
+    }
+
+    .ck-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+    }
+
+    .ck-total-row .total-label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .ck-total-row .total-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--rosa-claro);
+    }
+
+    /* CTA button */
+    .ck-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #E8467A, #C0376A);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+      padding: 16px 24px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      box-shadow: 0 6px 24px rgba(192,55,106,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
+      text-align: center;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-appearance: none;
+      flex-shrink: 0;
+    }
+
+    .ck-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(192,55,106,0.6);
+    }
+
+    @media (max-width: 760px) {
+      .ck-submit { font-size: 0.95rem; padding: 14px 20px; min-height: 50px; }
+    }
+
+    /* Trust footer */
+    .ck-trust {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 14px;
+    }
+
+    .ck-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      padding: 4px 10px;
+      white-space: nowrap;
+    }
+
+    .ck-trust-item .ti-icon { font-size: 0.85rem; }
+
+    /* SUCCESS SCREEN */
+    .ck-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 100%);
+      min-height: 400px;
+    }
+
+    .ck-success.active { display: flex; }
+    .ck-body.hidden { display: none; }
+
+    .ck-success-icon { font-size: 4rem; margin-bottom: 16px; }
+
+    .ck-success h2 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .ck-success h2 em { color: var(--rosa-claro); font-style: italic; }
+
+    .ck-success p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 460px;
+      margin-bottom: 8px;
+    }
+
+    .ck-success .email-highlight {
+      color: var(--rosa-claro);
+      font-weight: 700;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 760px) {
+      .ck-overlay { padding: 0; align-items: flex-start; }
+      .ck-modal { border-radius: 0 0 20px 20px; }
+      .ck-body { grid-template-columns: 1fr; }
+      .ck-left { padding: 20px 16px; }
+      .ck-right { padding: 20px 16px; }
+    }
+
+    @media (max-width: 480px) {
+      .ck-field-row { grid-template-columns: 1fr; }
+      .ck-pay-tabs { grid-template-columns: repeat(3, 1fr); font-size: 0.75rem; }
+      .ck-pay-tab { padding: 10px 4px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA TOPO -->
+  <div class="top-bar">
+    ⏳ Oferta especial por tempo limitado — <span>Acesse hoje com desconto exclusivo</span>
+  </div>
+
+  <!-- ==============================
+       HERO
+  ============================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-text">
+          <span class="hero-kicker">Guia de Consciência e Libertação</span>
+          <h1>
+            Você está sendo<br/>
+            <em>amada ou controlada?</em>
+          </h1>
+          <p>
+            Descubra os sinais ocultos de um relacionamento abusivo, entenda o que uma mulher
+            realmente merece receber e dê o primeiro passo rumo à sua liberdade e autoestima.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>27%</strong>
+              <span>das mulheres sofrem<br/>violência no relacionamento</span>
+            </div>
+            <div class="hero-stat">
+              <strong>+3.000</strong>
+              <span>mulheres transformadas<br/>com este conteúdo</span>
+            </div>
+            <div class="hero-stat">
+              <strong>7 dias</strong>
+              <span>de garantia<br/>incondicional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="book-wrap">
+          <div class="book">
+            <div class="book-spine"></div>
+            <div class="book-cover">
+              <span class="book-cover-icon">💜</span>
+              <div class="book-cover-line"></div>
+              <p class="book-cover-title">Você Merece<br/>Ser Amada</p>
+              <div class="book-cover-line"></div>
+              <span class="book-cover-sub">Guia Completo para Reconhecer<br/>e Sair do Abuso</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       PROBLEMA / CONTEXTO
+  ============================== -->
+  <section class="problema">
+    <div class="container">
+      <div class="problema-grid">
+        <div>
+          <div class="badge">A realidade que ninguém te contou</div>
+          <h2>O abuso raramente começa com violência física</h2>
+          <p>
+            A maioria das mulheres em relacionamentos abusivos não percebe que está sendo maltratada
+            porque o abuso começa de forma sutil — com ciúme "por amor", críticas "para te melhorar"
+            e controle disfarçado de cuidado.
+          </p>
+          <p>
+            Com o tempo, você passa a se sentir pequena, dependente e convicta de que é culpada
+            pelo comportamento dele. Isso não é amor. Isso é abuso emocional.
+          </p>
+          <div class="quote-block">
+            <p>"Ele nunca me bateu, então achei que não era abuso. Mas vivia com medo do humor dele,
+            andava em círculos para não 'provocar'. Isso é violência psicológica."</p>
+          </div>
+        </div>
+
+        <div class="stat-cards">
+          <div class="stat-card">
+            <strong>1 em 3</strong>
+            <p>mulheres no mundo sofre violência por parceiro íntimo ao longo da vida</p>
+          </div>
+          <div class="stat-card">
+            <strong>68%</strong>
+            <p>dos casos envolvem violência psicológica — a mais silenciosa</p>
+          </div>
+          <div class="stat-card">
+            <strong>7x</strong>
+            <p>em média, uma mulher tenta sair antes de conseguir romper definitivamente</p>
+          </div>
+          <div class="stat-card">
+            <strong>80%</strong>
+            <p>das vítimas não se reconhecem como abusadas nos primeiros anos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       SINAIS DE ALERTA
+  ============================== -->
+  <section class="sinais">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Sinais de Alerta</div>
+        <h2>12 sinais de que você pode estar<br/>em um relacionamento abusivo</h2>
+        <p>Reconhecer é o primeiro passo. Leia com atenção — muitos destes sinais são normalizados pela sociedade, mas não são saudáveis.</p>
+      </div>
+
+      <div class="sinais-grid">
+
+        <div class="sinal-card">
+          <span class="sinal-num">01</span>
+          <span class="sinal-icon">😤</span>
+          <h3>Ciúme excessivo e possessividade</h3>
+          <p>Ele verifica seu celular, controla suas amizades ou se irrita quando você sai sem ele.
+             Ciúme extremo não é prova de amor — é um sinal de controle.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">02</span>
+          <span class="sinal-icon">🔕</span>
+          <h3>Isolamento de familiares e amigos</h3>
+          <p>Você percebe que parou de ver as pessoas que ama, seja por pressão direta ou por
+             crises que ele cria toda vez que você sai.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">03</span>
+          <span class="sinal-icon">😰</span>
+          <h3>Você sente medo do humor dele</h3>
+          <p>Você adapta sua rotina, suas falas e suas ações para evitar deixá-lo com raiva.
+             Viver em estado de alerta constante é uma forma de abuso.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">04</span>
+          <span class="sinal-icon">💬</span>
+          <h3>Críticas constantes e humilhações</h3>
+          <p>Ele faz comentários que diminuem sua inteligência, aparência ou capacidade —
+             muitas vezes "na brincadeira" — fazendo você duvidar de si mesma.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">05</span>
+          <span class="sinal-icon">🔁</span>
+          <h3>Ciclo de lua de mel e violência</h3>
+          <p>Após brigas e agressões vêm arrependimento, presentes e promessas de mudança.
+             Esse ciclo se repete indefinidamente — e tende a se intensificar.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">06</span>
+          <span class="sinal-icon">💸</span>
+          <h3>Controle financeiro</h3>
+          <p>Ele controla seu dinheiro, impede que você trabalhe, ou usa as finanças como
+             ferramenta de dependência e punição.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">07</span>
+          <span class="sinal-icon">🧠</span>
+          <h3>Gaslighting — distorção da realidade</h3>
+          <p>Ele nega fatos, minimiza seus sentimentos ("você é louca", "isso não aconteceu")
+             até você passar a questionar sua própria percepção.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">08</span>
+          <span class="sinal-icon">🪢</span>
+          <h3>Você se sente responsável pela felicidade dele</h3>
+          <p>Sente culpa quando ele está de mau humor, como se o humor dele dependesse
+             exclusivamente de você. Isso é manipulação emocional.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">09</span>
+          <span class="sinal-icon">🚪</span>
+          <h3>Ameaças quando você pensa em sair</h3>
+          <p>Ele ameaça se machucar, vazar fotos, prejudicar sua família ou "não deixar"
+             você ir. Nenhuma dessas é uma resposta saudável.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">10</span>
+          <span class="sinal-icon">😶</span>
+          <h3>Silêncio punitivo</h3>
+          <p>Ele usa o silêncio como arma — fica dias sem falar, te ignorando como forma
+             de punição e controle emocional.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">11</span>
+          <span class="sinal-icon">📵</span>
+          <h3>Controle da sua comunicação</h3>
+          <p>Ele lê suas mensagens, exige senhas, monitora suas redes sociais ou proíbe
+             contato com determinadas pessoas.</p>
+        </div>
+
+        <div class="sinal-card">
+          <span class="sinal-num">12</span>
+          <span class="sinal-icon">🪞</span>
+          <h3>Sua autoestima despencou</h3>
+          <p>Você se sente inadequada, feia, "sortuda por tê-lo". Relacionamentos saudáveis
+             elevam sua autoestima — nunca a destroem.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       COMPORTAMENTOS ABUSIVOS
+  ============================== -->
+  <section class="alertas">
+    <div class="container alertas-inner">
+      <div class="badge" style="display:block;text-align:center;margin-bottom:16px;">Padrões de Comportamento</div>
+      <h2>Como homens abusivos agem<br/>e o que isso revela</h2>
+      <p>Entender os padrões é essencial para não confundi-los com amor ou cuidado.</p>
+
+      <div class="comportamentos-list">
+
+        <div class="comp-item">
+          <div class="comp-item-icon">🎭</div>
+          <div class="comp-item-text">
+            <h4>Dupla personalidade (persona pública x privada)</h4>
+            <p>Na frente dos outros é encantador e atencioso. Em casa, é frio, agressivo ou controlador.
+               Essa dissonância faz você questionar a própria realidade.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">🕊️</div>
+          <div class="comp-item-text">
+            <h4>Love bombing seguido de afastamento</h4>
+            <p>No início do relacionamento, ele age de forma intensa — presentes, atenção excessiva, declarações rápidas. É uma forma de criar dependência emocional antes do controle aparecer.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">🪤</div>
+          <div class="comp-item-text">
+            <h4>Minimização e justificação das agressões</h4>
+            <p>"Você me provocou", "se não tivesse feito isso, eu não teria reagido assim". O abusador
+               sempre transfere a responsabilidade para a vítima.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">📊</div>
+          <div class="comp-item-text">
+            <h4>Controle progressivo e gradual</h4>
+            <p>Começa pequeno — um comentário sobre a roupa, um "você não precisa sair com elas".
+               Com o tempo, o controle se expande para todas as áreas da sua vida.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">😢</div>
+          <div class="comp-item-text">
+            <h4>Manipulação emocional via vitimização</h4>
+            <p>Quando você tenta se posicionar, ele se coloca como vítima da situação — chora, faz
+               ameaças veladas ou usa sua compaixão para que você recue.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">🔒</div>
+          <div class="comp-item-text">
+            <h4>Criação de dependência emocional e financeira</h4>
+            <p>Ele sabota sua independência sutilmente: critica seus projetos, impede oportunidades,
+               cria situações que te tornam financeiramente dependente.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">📣</div>
+          <div class="comp-item-text">
+            <h4>Explosões de raiva desproporcionais</h4>
+            <p>Reações exageradas a situações simples criam um estado constante de tensão.
+               Você passa a viver "pisando em ovos" — o que é psicologicamente devastador.</p>
+          </div>
+        </div>
+
+        <div class="comp-item">
+          <div class="comp-item-icon">🌀</div>
+          <div class="comp-item-text">
+            <h4>Negação de qualquer problema</h4>
+            <p>Quando você tenta conversar sobre o que sente, ele descarta, muda de assunto,
+               acusa você de "drama" ou simplesmente sai da conversa. Sua dor não existe para ele.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       COMO MERECE SER TRATADA
+  ============================== -->
+  <section class="merece">
+    <div class="container">
+      <div class="merece-grid">
+        <div>
+          <div class="badge">O Amor que Você Merece</div>
+          <h2>É assim que um homem deve<br/>tratar uma mulher</h2>
+          <p style="color:var(--cinza);margin-bottom:28px;font-size:1.05rem;">
+            Muitas mulheres nunca vivenciaram um relacionamento realmente saudável e não sabem
+            que tipo de tratamento merecem receber. Conheça os pilares do amor verdadeiro:
+          </p>
+          <ul class="merece-list">
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Respeito incondicional</strong> — às suas opiniões, decisões, amizades e ao seu tempo.</span>
+            </li>
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Comunicação honesta</strong> — sem manipulação, sem silêncio punitivo e sem distorção da realidade.</span>
+            </li>
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Liberdade e autonomia</strong> — você pode trabalhar, ter amigos, ter sonhos e ele celebra isso.</span>
+            </li>
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Segurança emocional</strong> — você se sente segura para ser quem é, sem medo do humor dele.</span>
+            </li>
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Parceria real</strong> — decisões são tomadas juntos, com igual poder de voz.</span>
+            </li>
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Sua autoestima cresce</strong> — um parceiro saudável te vê como capaz, bela e suficiente.</span>
+            </li>
+            <li>
+              <div class="check-icon">✓</div>
+              <span><strong>Conflitos resolvidos com maturidade</strong> — sem ataques, humilhações ou ameaças durante desentendimentos.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flor-visual">
+          <div class="flor-card">
+            <div class="icon">💬</div>
+            <h4>Comunicação Saudável</h4>
+            <p>Ele ouve sem interromper, valida seus sentimentos e fala com respeito mesmo no conflito.</p>
+          </div>
+          <div class="flor-card">
+            <div class="icon">🌱</div>
+            <h4>Incentivo ao Crescimento</h4>
+            <p>Ele comemora suas conquistas e te apoia a alcançar seus objetivos pessoais.</p>
+          </div>
+          <div class="flor-card">
+            <div class="icon">🤝</div>
+            <h4>Parceria Igualitária</h4>
+            <p>As responsabilidades são divididas, as decisões são compartilhadas, o respeito é mútuo.</p>
+          </div>
+          <div class="flor-card">
+            <div class="icon">❤️</div>
+            <h4>Amor que Eleva</h4>
+            <p>Você sai de cada encontro sentindo-se mais forte, mais amada e mais você mesma.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       DEPOIMENTOS
+  ============================== -->
+  <section class="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Histórias Reais</div>
+        <h2>Mulheres que reconheceram,<br/>saíram e reconstruíram</h2>
+        <p>Elas estavam onde você pode estar agora. E deram o primeiro passo.</p>
+      </div>
+
+      <div class="depo-grid">
+
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">
+            "Achei que ciúme era sinal de amor. O ebook me abriu os olhos: percebi que vivia
+            em um ciclo de medo há 4 anos. Com coragem e informação, consegui sair."
+          </p>
+          <div class="depo-author">
+            <div class="depo-avatar">M</div>
+            <div>
+              <div class="depo-name">Marina S.</div>
+              <div class="depo-city">São Paulo — SP</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">
+            "Ele nunca levantou a mão. Mas destruiu minha autoestima com palavras.
+            Esse material me ensinou que violência psicológica é tão real quanto a física. Me salvou."
+          </p>
+          <div class="depo-author">
+            <div class="depo-avatar">J</div>
+            <div>
+              <div class="depo-name">Juliana R.</div>
+              <div class="depo-city">Belo Horizonte — MG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <p class="depo-text">
+            "Lia uma página e chorava reconhecendo minha própria história. Finalmente
+            entendi que não era culpa minha. Hoje vivo em paz, com respeito e amor de verdade."
+          </p>
+          <div class="depo-author">
+            <div class="depo-avatar">C</div>
+            <div>
+              <div class="depo-name">Carla F.</div>
+              <div class="depo-city">Recife — PE</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       OFERTA DO EBOOK
+  ============================== -->
+  <section class="oferta" id="oferta">
+    <div class="container oferta-inner">
+      <div class="oferta-box">
+        <div class="badge">Ebook Completo</div>
+        <h2>Você Merece Ser Amada</h2>
+        <p>
+          O guia completo que reúne tudo que você precisa saber para reconhecer o abuso,
+          fortalecer sua autoestima e construir uma vida plena e livre.
+        </p>
+
+        <div class="ebook-preview">
+          <div class="ebook-3d">
+            <div class="icon">💜</div>
+            <div class="title">Você Merece Ser Amada</div>
+            <div class="sub">Guia Completo · E-book</div>
+          </div>
+
+          <div class="ebook-conteudo">
+            <h3>O que você vai encontrar:</h3>
+
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">Os 12 tipos de abuso</strong> — físico, psicológico, sexual, financeiro e mais</p>
+            </div>
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">O ciclo da violência</strong> detalhado com orientações práticas</p>
+            </div>
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">Como reconstruir a autoestima</strong> após um relacionamento abusivo</p>
+            </div>
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">Plano de saída segura</strong> — passo a passo para quem quer sair</p>
+            </div>
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">Como identificar um parceiro saudável</strong> no futuro</p>
+            </div>
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">Recursos legais e canais de ajuda</strong> disponíveis no Brasil</p>
+            </div>
+            <div class="ebook-item">
+              <div class="ebook-item-dot">✓</div>
+              <p><strong style="color:#fff">Exercícios de cura e autoconhecimento</strong> para cada capítulo</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="preco-area">
+          <div class="preco-de">De R$ 97</div>
+          <div class="preco-por">
+            <small>hoje por apenas</small>
+            <div class="preco-valor"><sup>R$</sup>27<sub>,00</sub></div>
+          </div>
+          <div class="preco-badge">72% OFF</div>
+        </div>
+
+        <button class="btn-cta" onclick="openCheckout()">
+          Quero Meu Acesso Agora
+          <span class="arrow">→</span>
+        </button>
+
+        <p class="garantia-text">
+          🔒 Pagamento 100% seguro &nbsp;|&nbsp; <span>Garantia de 7 dias</span> &nbsp;|&nbsp; Acesso imediato
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       GARANTIA
+  ============================== -->
+  <section class="garantia">
+    <div class="container">
+      <div class="garantia-box">
+        <div class="garantia-icon">🛡️</div>
+        <div>
+          <h3>Garantia Incondicional de 7 Dias</h3>
+          <p>
+            Se você adquirir o ebook e por qualquer motivo não se sentir satisfeita,
+            basta nos enviar uma mensagem em até 7 dias e devolveremos 100% do seu dinheiro,
+            sem perguntas e sem burocracia. Você não tem nada a perder — mas tem muito a ganhar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FAQ
+  ============================== -->
+  <section class="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge">Dúvidas Frequentes</div>
+        <h2>Perguntas frequentes</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Como vou receber o ebook?</span>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-a">
+            <p>Após a confirmação do pagamento, você receberá um e-mail com o link de acesso ao ebook em formato PDF em até 5 minutos. O acesso é imediato e você pode ler em qualquer dispositivo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Estou em situação de perigo. O ebook vai me ajudar?</span>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-a">
+            <p>O ebook inclui um capítulo completo sobre plano de saída segura e recursos de ajuda no Brasil, incluindo a Central de Atendimento à Mulher (ligue 180) e orientações práticas. Se você estiver em perigo imediato, ligue 190 (Polícia) ou 180 agora.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Ainda não tenho certeza se estou em um relacionamento abusivo. Esse ebook é para mim?</span>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-a">
+            <p>Sim! Esse é exatamente o perfil de quem mais se beneficia do ebook. Se você tem dúvidas, sente desconforto ou simplesmente quer entender melhor o que é um relacionamento saudável, o conteúdo vai te dar clareza total.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>E se eu quiser indicar para uma amiga?</span>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-a">
+            <p>Com certeza! Cada acesso é individual, então sua amiga precisa adquirir o próprio exemplar. Mas você pode compartilhar essa página livremente — ajudar outras mulheres a reconhecerem o abuso pode ser um ato de amor transformador.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            <span>Quais formas de pagamento são aceitas?</span>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-a">
+            <p>Aceitamos cartão de crédito (parcelado), PIX e boleto bancário. O ambiente de pagamento é 100% seguro e criptografado.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CTA FINAL
+  ============================== -->
+  <section class="cta-final">
+    <div class="container">
+      <h2>Você merece um amor que te<br/>faça florescer, não murchar</h2>
+      <p>
+        Dar o primeiro passo é a parte mais difícil — e você não precisa dar sozinha.
+        Esse ebook é o seu ponto de partida para uma vida com respeito, amor e liberdade.
+      </p>
+      <button class="btn-cta-branco" onclick="openCheckout()">
+        Quero Começar Agora →
+      </button>
+    </div>
+  </section>
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom:8px">
+        <strong>Você Merece Ser Amada</strong> — Guia de Consciência e Libertação
+      </p>
+      <p>
+        Em caso de violência doméstica ligue <strong style="color:#F2789F">180</strong> (Central da Mulher)
+        ou <strong style="color:#F2789F">190</strong> (Polícia) &nbsp;·&nbsp;
+        <a href="#">Termos de uso</a> &nbsp;·&nbsp; <a href="#">Política de privacidade</a>
+      </p>
+      <p style="margin-top:12px;font-size:0.78rem;">
+        © 2026 — Todos os direitos reservados.
+        Este conteúdo tem caráter informativo e educacional. Não substitui acompanhamento psicológico ou jurídico.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ==============================
+       CHECKOUT MODAL
+  ============================== -->
+  <div class="ck-overlay" id="checkoutOverlay" onclick="handleOverlayClick(event)">
+    <div class="ck-modal" id="checkoutModal">
+
+      <!-- HEADER -->
+      <div class="ck-header">
+        <div class="ck-header-left">
+          <span>🔒 Finalizar Compra</span>
+        </div>
+        <div class="ck-secure-badge">🛡️ Compra 100% Segura</div>
+        <button class="ck-close" onclick="closeCheckout()" aria-label="Fechar">✕</button>
+      </div>
+
+      <!-- SUCCESS SCREEN (hidden by default) -->
+      <div class="ck-success" id="ckSuccess">
+        <div class="ck-success-icon">💜</div>
+        <h2>Pedido confirmado!<br/><em>Bem-vinda à jornada.</em></h2>
+        <p>Seu acesso foi processado com sucesso. Verifique o e-mail <span class="email-highlight" id="successEmail"></span> para receber o link do seu conteúdo.</p>
+        <p style="margin-top:8px; color:rgba(255,255,255,0.5); font-size:0.82rem;">Em caso de dúvidas, fale conosco pelo WhatsApp. Você merece ser amada — e agora você tem as ferramentas para reconhecer isso. 💜</p>
+      </div>
+
+      <!-- BODY -->
+      <div class="ck-body" id="ckBody">
+
+        <!-- ======= LEFT PANEL ======= -->
+        <div class="ck-left">
+
+          <!-- Product Card -->
+          <div class="ck-product-card">
+            <div class="ck-product-label">📖 E-book Completo</div>
+            <div class="ck-product-row">
+              <div class="ck-book-mini">💜</div>
+              <div class="ck-product-info">
+                <h4>Você Merece Ser Amada</h4>
+                <p class="ck-product-price"><s>R$ 97,00</s> R$ 27,00 <span style="background:var(--rosa);color:#fff;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:100px;">72% OFF</span></p>
+              </div>
+            </div>
+            <div class="ck-includes">
+              <div class="ck-includes-item">Os 12 tipos de abuso e como reconhecê-los</div>
+              <div class="ck-includes-item">O ciclo da violência com orientações práticas</div>
+              <div class="ck-includes-item">Plano de saída segura passo a passo</div>
+              <div class="ck-includes-item">Recursos legais e canais de ajuda no Brasil</div>
+              <div class="ck-includes-item">Exercícios de autoconhecimento em cada capítulo</div>
+            </div>
+          </div>
+
+          <!-- ORDER BUMP (revelado ao escolher pagamento) -->
+          <div id="bumpWrap" class="ck-bump-wrap">
+          <div class="ck-bump">
+            <div class="ck-bump-tag">🎁 Oferta Especial</div>
+            <div class="ck-bump-row">
+              <div class="ck-bump-book">🌸</div>
+              <div class="ck-bump-info">
+                <h5>30 Dias para Me Reconquistar</h5>
+                <p>Workbook diário com exercícios guiados para 4 semanas de cura: reconhecendo a dor, liberando a culpa, redescobrindo você e se tornando a nova você.</p>
+              </div>
+            </div>
+            <div class="ck-bump-price">
+              <span class="from">De R$ 47,00</span>
+              <span class="to">+ R$ 13,00</span>
+              <span style="background:rgba(46,204,113,0.2);color:#2ecc71;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:100px;border:1px solid rgba(46,204,113,0.3);">72% OFF</span>
+            </div>
+            <label class="ck-bump-checkbox">
+              <input type="checkbox" id="bumpCheck" onchange="toggleBump()">
+              <label for="bumpCheck"><strong>Sim, quero adicionar o Workbook</strong> por apenas <strong>+R$ 13,00</strong> e começar minha jornada de 30 dias de cura imediatamente.</label>
+            </label>
+          </div>
+
+          </div><!-- /bumpWrap -->
+
+          <!-- Guarantee -->
+          <div class="ck-guarantee">
+            <span class="icon">🛡️</span>
+            <p><strong>Garantia incondicional de 7 dias.</strong> Se não ficar satisfeita, devolvemos 100% do valor sem perguntas.</p>
+          </div>
+
+          <!-- TRUST SECTION -->
+          <div class="ck-trust-section">
+
+            <!-- Formas de pagamento -->
+            <div>
+              <div class="ck-trust-label">Formas de pagamento aceitas</div>
+              <div class="ck-payment-logos">
+                <!-- PIX -->
+                <div class="ck-pay-logo">
+                  <svg width="28" height="14" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="15" font-family="Arial" font-weight="900" font-size="14" fill="#4ade80">PIX</text>
+                  </svg>
+                </div>
+                <!-- Boleto -->
+                <div class="ck-pay-logo">
+                  <svg width="36" height="14" viewBox="0 0 50 14" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0" y="0" width="3" height="14" fill="currentColor"/>
+                    <rect x="5" y="0" width="1" height="14" fill="currentColor"/>
+                    <rect x="8" y="0" width="2" height="14" fill="currentColor"/>
+                    <rect x="12" y="0" width="1" height="14" fill="currentColor"/>
+                    <rect x="15" y="0" width="3" height="14" fill="currentColor"/>
+                    <rect x="20" y="0" width="1" height="14" fill="currentColor"/>
+                    <rect x="23" y="0" width="2" height="14" fill="currentColor"/>
+                    <rect x="27" y="0" width="1" height="14" fill="currentColor"/>
+                    <rect x="30" y="0" width="3" height="14" fill="currentColor"/>
+                    <rect x="35" y="0" width="2" height="14" fill="currentColor"/>
+                    <rect x="39" y="0" width="1" height="14" fill="currentColor"/>
+                    <rect x="42" y="0" width="3" height="14" fill="currentColor"/>
+                    <rect x="47" y="0" width="2" height="14" fill="currentColor"/>
+                  </svg>
+                </div>
+                <!-- Visa -->
+                <div class="ck-pay-logo" style="color:rgba(255,255,255,0.8);font-size:0.7rem;font-style:italic;font-weight:900;letter-spacing:-0.02em;">VISA</div>
+                <!-- Mastercard -->
+                <div class="ck-pay-logo">
+                  <svg width="24" height="15" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8" cy="7.5" r="7" fill="#eb5757" opacity="0.85"/>
+                    <circle cx="16" cy="7.5" r="7" fill="#f5a623" opacity="0.85"/>
+                  </svg>
+                </div>
+                <!-- Amex -->
+                <div class="ck-pay-logo" style="font-size:0.55rem;letter-spacing:0.01em;color:rgba(255,255,255,0.7);">AMEX</div>
+                <!-- Elo -->
+                <div class="ck-pay-logo" style="color:rgba(255,220,80,0.85);font-size:0.68rem;font-weight:900;">elo</div>
+                <!-- Hipercard -->
+                <div class="ck-pay-logo" style="font-size:0.52rem;color:rgba(255,120,120,0.85);font-weight:700;letter-spacing:0.02em;">HIPER</div>
+              </div>
+            </div>
+
+            <!-- Segurança -->
+            <div>
+              <div class="ck-trust-label">Segurança garantida</div>
+              <div class="ck-security-row">
+                <div class="ck-ssl-badge">
+                  <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 0L0 2v4c0 3 2.5 5.5 5 6 2.5-.5 5-3 5-6V2L5 0z" fill="#4ade80" opacity="0.9"/>
+                    <path d="M3 6l1.5 1.5L7 4" stroke="#1a2e1a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  SSL Blindado
+                </div>
+                <div class="ck-ssl-badge" style="color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.1);">
+                  <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 0L0 2v4c0 3 2.5 5.5 5 6 2.5-.5 5-3 5-6V2L5 0z" fill="rgba(255,255,255,0.4)"/>
+                    <path d="M3 6l1.5 1.5L7 4" stroke="rgba(0,0,0,0.6)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  Site Blindado
+                </div>
+              </div>
+            </div>
+
+            <!-- Suporte -->
+            <div class="ck-support-link">
+              Precisa de ajuda? <a href="mailto:contato@vocemerecesramada.com.br">contato@vocemerecesramada.com.br</a>
+            </div>
+
+          </div>
+          <!-- /TRUST SECTION -->
+
+        </div>
+
+        <!-- ======= RIGHT PANEL ======= -->
+        <div class="ck-right">
+
+          <!-- Dados pessoais -->
+          <div>
+            <div class="ck-section-title">Seus dados</div>
+            <div class="ck-field">
+              <label for="ckName">Nome completo</label>
+              <input type="text" id="ckName" placeholder="Seu nome completo" autocomplete="name">
+            </div>
+            <div class="ck-field">
+              <label for="ckEmail">E-mail</label>
+              <input type="email" id="ckEmail" placeholder="seu@email.com" autocomplete="email">
+            </div>
+            <div class="ck-field">
+              <label for="ckPhone">WhatsApp</label>
+              <input type="tel" id="ckPhone" placeholder="(11) 99999-9999" autocomplete="tel" oninput="maskPhone(this)">
+            </div>
+          </div>
+
+          <!-- Pagamento -->
+          <div>
+            <div class="ck-section-title">Forma de pagamento</div>
+            <div class="ck-pay-tabs">
+              <div class="ck-pay-tab active" id="tabPix" onclick="setPayTab('pix')">
+                <span class="tab-icon">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block">
+                    <!-- canto sup esq -->
+                    <rect x="1" y="1" width="5" height="5" rx="0.5" fill="currentColor" opacity="0.9"/>
+                    <rect x="2" y="2" width="3" height="3" rx="0.3" fill="currentColor" opacity="0.3"/>
+                    <rect x="3" y="3" width="1" height="1" fill="currentColor"/>
+                    <!-- canto sup dir -->
+                    <rect x="10" y="1" width="5" height="5" rx="0.5" fill="currentColor" opacity="0.9"/>
+                    <rect x="11" y="2" width="3" height="3" rx="0.3" fill="currentColor" opacity="0.3"/>
+                    <rect x="12" y="3" width="1" height="1" fill="currentColor"/>
+                    <!-- canto inf esq -->
+                    <rect x="1" y="10" width="5" height="5" rx="0.5" fill="currentColor" opacity="0.9"/>
+                    <rect x="2" y="11" width="3" height="3" rx="0.3" fill="currentColor" opacity="0.3"/>
+                    <rect x="3" y="12" width="1" height="1" fill="currentColor"/>
+                    <!-- dados centro -->
+                    <rect x="7" y="1" width="1" height="1" fill="currentColor"/>
+                    <rect x="7" y="3" width="2" height="1" fill="currentColor"/>
+                    <rect x="7" y="5" width="1" height="2" fill="currentColor"/>
+                    <rect x="9" y="5" width="1" height="1" fill="currentColor"/>
+                    <rect x="10" y="7" width="1" height="1" fill="currentColor"/>
+                    <rect x="12" y="7" width="1" height="2" fill="currentColor"/>
+                    <rect x="14" y="7" width="1" height="1" fill="currentColor"/>
+                    <rect x="7" y="8" width="2" height="1" fill="currentColor"/>
+                    <rect x="7" y="10" width="1" height="1" fill="currentColor"/>
+                    <rect x="9" y="10" width="2" height="1" fill="currentColor"/>
+                    <rect x="7" y="12" width="2" height="1" fill="currentColor"/>
+                    <rect x="10" y="12" width="1" height="1" fill="currentColor"/>
+                    <rect x="12" y="10" width="1" height="1" fill="currentColor"/>
+                    <rect x="14" y="11" width="1" height="2" fill="currentColor"/>
+                    <rect x="12" y="13" width="3" height="1" fill="currentColor"/>
+                  </svg>
+                </span> PIX
+              </div>
+              <div class="ck-pay-tab" id="tabCard" onclick="setPayTab('card')">
+                <span class="tab-icon">💳</span> Cartão
+              </div>
+              <div class="ck-pay-tab" id="tabBoleto" onclick="setPayTab('boleto')">
+                <span class="tab-icon">📄</span> Boleto
+              </div>
+            </div>
+
+            <!-- PIX -->
+            <div class="ck-pix-panel active" id="pixPanel">
+              <div class="ck-pix-info">
+                <div class="ck-pix-qr">🔳</div>
+                <h5>Pague agora e receba acesso em minutos</h5>
+                <p>Use o QR Code acima ou copie a chave PIX abaixo no app do seu banco.</p>
+              </div>
+              <div class="ck-pix-key">
+                <span id="pixKeyText">vocemerecesramada@pagamentos.com.br</span>
+                <button class="ck-copy-btn" onclick="copyPix()">Copiar</button>
+              </div>
+              <div class="ck-pix-steps">
+                <div class="ck-pix-step"><span class="step-num">1</span> Abra o app do seu banco</div>
+                <div class="ck-pix-step"><span class="step-num">2</span> Selecione "Pagar com PIX" e escaneie o QR Code ou cole a chave</div>
+                <div class="ck-pix-step"><span class="step-num">3</span> Confirme o pagamento — o acesso será enviado automaticamente para seu e-mail</div>
+              </div>
+            </div>
+
+            <!-- CARTÃO -->
+            <div class="ck-card-panel" id="cardPanel">
+              <div class="ck-field">
+                <label>Número do cartão</label>
+                <input type="text" id="ckCard" placeholder="0000 0000 0000 0000" maxlength="19" oninput="maskCard(this)">
+              </div>
+              <div class="ck-field">
+                <label>Nome no cartão</label>
+                <input type="text" id="ckCardName" placeholder="Como aparece no cartão" style="text-transform:uppercase">
+              </div>
+              <div class="ck-field-row">
+                <div class="ck-field">
+                  <label>Validade</label>
+                  <input type="text" id="ckExpiry" placeholder="MM/AA" maxlength="5" oninput="maskExpiry(this)">
+                </div>
+                <div class="ck-field">
+                  <label>CVV</label>
+                  <input type="text" id="ckCvv" placeholder="000" maxlength="4">
+                </div>
+              </div>
+              <div class="ck-field">
+                <label>Parcelamento</label>
+                <select id="ckInstall">
+                  <option value="1">1× de R$ 27,00 (sem juros)</option>
+                  <option value="2">2× de R$ 14,35 (sem juros)</option>
+                  <option value="3">3× de R$ 9,57 (sem juros)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- BOLETO -->
+            <div class="ck-boleto-panel" id="boletoPanel">
+              <div class="ck-boleto-warn">
+                <span class="warn-icon">⚠️</span>
+                <span>O boleto vence em <strong>3 dias úteis</strong>. O acesso ao produto será liberado em até <strong>1–2 dias úteis</strong> após a confirmação do pagamento pelo banco.</span>
+              </div>
+              <div class="ck-boleto-info">
+                <div class="ck-pix-steps">
+                  <div class="ck-pix-step"><span class="step-num">1</span> Clique em "Confirmar Pedido" para gerar seu boleto</div>
+                  <div class="ck-pix-step"><span class="step-num">2</span> Copie a linha digitável ou escaneie o código de barras</div>
+                  <div class="ck-pix-step"><span class="step-num">3</span> Pague no app do seu banco, lotérica ou internet banking</div>
+                  <div class="ck-pix-step"><span class="step-num">4</span> Aguarde a confirmação e receba o acesso por e-mail</div>
+                </div>
+              </div>
+              <div class="ck-boleto-barcode">
+                <span id="boletoLineText">34191.75124 05764.212136 61514.190001 6 94190000002700</span>
+                <button class="ck-copy-boleto-btn" onclick="copyBoleto()">Copiar</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resumo -->
+          <div class="ck-summary">
+            <div class="ck-summary-row">
+              <span>E-book Você Merece Ser Amada</span>
+              <span>R$ 27,00</span>
+            </div>
+            <div class="ck-summary-row bump-row" id="bumpRow">
+              <span>✓ Workbook 30 Dias</span>
+              <span>R$ 13,00</span>
+            </div>
+            <hr class="ck-summary-divider">
+            <div class="ck-total-row">
+              <span class="total-label">Total hoje</span>
+              <span class="total-value" id="ckTotal">R$ 27,00</span>
+            </div>
+          </div>
+
+          <!-- Confirm button -->
+          <button class="ck-submit" onclick="submitCheckout()">
+            🔒 Confirmar Pedido &nbsp;→
+          </button>
+
+          <!-- Trust footer -->
+          <div class="ck-trust">
+            <div class="ck-trust-item"><span class="ti-icon">🔒</span> Compra segura SSL</div>
+            <div class="ck-trust-item"><span class="ti-icon">🛡️</span> Garantia 7 dias</div>
+            <div class="ck-trust-item"><span class="ti-icon">⚡</span> Acesso imediato</div>
+          </div>
+
+        </div>
+        <!-- /RIGHT PANEL -->
+
+      </div>
+      <!-- /BODY -->
+
+    </div>
+  </div>
+
+  <!-- ==============================
+       JAVASCRIPT (FAQ accordion)
+  ============================== -->
+  <script>
+    /* ===== FAQ Accordion ===== */
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ===== CHECKOUT ===== */
+
+    // State
+    let bumpAdded = false;
+    const PRICE_EBOOK = 27;
+    const PRICE_BUMP  = 13;
+    let _scrollY = 0;
+
+    let _checkoutReady = false;
+
+    function openCheckout() {
+      _checkoutReady = false;
+      const overlay = document.getElementById('checkoutOverlay');
+
+      // iOS Fix: primeiro mostra o elemento (display:flex),
+      // depois dispara a transição de opacidade via rAF duplo.
+      // Sem isso, o overlay invisível (position:fixed inset:0) intercepta
+      // os toques no iOS Safari mesmo com pointer-events:none.
+      overlay.style.display = 'flex';
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          overlay.classList.add('active');
+        });
+      });
+
+      // iOS Safari scroll lock
+      _scrollY = window.scrollY || window.pageYOffset;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${_scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      // Reset success screen
+      document.getElementById('ckSuccess').classList.remove('active');
+      document.getElementById('ckBody').classList.remove('hidden');
+      // Oculta Oferta Especial e reseta bump
+      document.getElementById('bumpWrap').classList.remove('revealed');
+      const cb = document.getElementById('bumpCheck');
+      if (cb.checked) { cb.checked = false; toggleBump(); }
+      // Reseta aba para PIX sem revelar bump
+      _switchTab('pix');
+    }
+
+    function closeCheckout() {
+      const overlay = document.getElementById('checkoutOverlay');
+      overlay.classList.remove('active');
+      // Restaura scroll do iOS imediatamente
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      window.scrollTo(0, _scrollY);
+      // Após a transição de fade-out, seta display:none para que o overlay
+      // não possa interceptar toques no iOS Safari
+      var hideTimer = setTimeout(function() { overlay.style.display = 'none'; }, 350);
+      overlay.addEventListener('transitionend', function hideOnEnd() {
+        clearTimeout(hideTimer);
+        overlay.style.display = 'none';
+        overlay.removeEventListener('transitionend', hideOnEnd);
+      });
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target === document.getElementById('checkoutOverlay')) closeCheckout();
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeCheckout();
+    });
+
+    // Troca de aba sem efeito colateral (usada no reset interno)
+    function _switchTab(tab) {
+      document.getElementById('tabPix').classList.toggle('active', tab === 'pix');
+      document.getElementById('tabCard').classList.toggle('active', tab === 'card');
+      document.getElementById('tabBoleto').classList.toggle('active', tab === 'boleto');
+      document.getElementById('pixPanel').classList.toggle('active', tab === 'pix');
+      document.getElementById('cardPanel').classList.toggle('active', tab === 'card');
+      document.getElementById('boletoPanel').classList.toggle('active', tab === 'boleto');
+      if (tab === 'card') updateInstallments();
+    }
+
+    // Payment tabs — chamada pelo usuário; revela Oferta Especial
+    function setPayTab(tab) {
+      _switchTab(tab);
+      if (!_checkoutReady) {
+        _checkoutReady = true;
+        setTimeout(() => document.getElementById('bumpWrap').classList.add('revealed'), 100);
+      }
+    }
+
+    // Order bump toggle
+    function toggleBump() {
+      bumpAdded = document.getElementById('bumpCheck').checked;
+      const total = PRICE_EBOOK + (bumpAdded ? PRICE_BUMP : 0);
+      document.getElementById('ckTotal').textContent = `R$ ${total},00`;
+      document.getElementById('bumpRow').classList.toggle('visible', bumpAdded);
+      updateInstallments();
+    }
+
+    function updateInstallments() {
+      const total = PRICE_EBOOK + (bumpAdded ? PRICE_BUMP : 0);
+      const sel = document.getElementById('ckInstall');
+      if (!sel) return;
+      sel.innerHTML = `
+        <option value="1">1× de R$ ${total},00 (sem juros)</option>
+        <option value="2">2× de R$ ${(total/2).toFixed(2).replace('.',',')} (sem juros)</option>
+        <option value="3">3× de R$ ${(total/3).toFixed(2).replace('.',',')} (sem juros)</option>
+      `;
+    }
+
+    // Copy boleto line
+    function copyBoleto() {
+      const line = document.getElementById('boletoLineText').textContent;
+      navigator.clipboard.writeText(line).then(() => {
+        const btn = document.querySelector('.ck-copy-boleto-btn');
+        const original = btn.textContent;
+        btn.textContent = '✓ Copiado!';
+        btn.style.background = 'rgba(212,168,67,0.3)';
+        setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 2000);
+      });
+    }
+
+    // Copy PIX key
+    function copyPix() {
+      const key = document.getElementById('pixKeyText').textContent;
+      navigator.clipboard.writeText(key).then(() => {
+        const btn = document.querySelector('.ck-copy-btn');
+        const original = btn.textContent;
+        btn.textContent = '✓ Copiado!';
+        btn.style.background = 'rgba(46,204,113,0.3)';
+        setTimeout(() => { btn.textContent = original; btn.style.background = ''; }, 2000);
+      });
+    }
+
+    // Input masks
+    function maskPhone(input) {
+      let v = input.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length > 6) v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+      else if (v.length > 2) v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+      else if (v.length > 0) v = `(${v}`;
+      input.value = v;
+    }
+
+    function maskCard(input) {
+      let v = input.value.replace(/\D/g, '').slice(0, 16);
+      input.value = v.replace(/(.{4})/g, '$1 ').trim();
+    }
+
+    function maskExpiry(input) {
+      let v = input.value.replace(/\D/g, '').slice(0, 4);
+      if (v.length > 2) v = `${v.slice(0,2)}/${v.slice(2)}`;
+      input.value = v;
+    }
+
+    // Submit
+    function submitCheckout() {
+      const name  = document.getElementById('ckName').value.trim();
+      const email = document.getElementById('ckEmail').value.trim();
+      const phone = document.getElementById('ckPhone').value.trim();
+
+      // Basic validation
+      if (!name) { alert('Por favor, informe seu nome completo.'); return; }
+      if (!email || !email.includes('@')) { alert('Por favor, informe um e-mail válido.'); return; }
+      if (!phone) { alert('Por favor, informe seu WhatsApp.'); return; }
+
+      // Show success screen
+      document.getElementById('successEmail').textContent = email;
+      document.getElementById('ckBody').classList.add('hidden');
+      document.getElementById('ckSuccess').classList.add('active');
+
+      // Scroll to top of modal
+      document.getElementById('checkoutModal').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

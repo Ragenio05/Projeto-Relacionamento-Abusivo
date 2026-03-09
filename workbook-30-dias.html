@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>30 Dias para Me Reconquistar — Workbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rosa:        #C0376A;
+      --rosa-claro:  #F2789F;
+      --rosa-pale:   #FDE8EF;
+      --roxo:        #7B3F8C;
+      --roxo-claro:  #B57CC1;
+      --creme:       #FFF8F5;
+      --escuro:      #1A1A2E;
+      --cinza:       #5A5A72;
+      --cinza-claro: #F5F4F8;
+      --branco:      #FFFFFF;
+      --dourado:     #D4A843;
+      --verde:       #2ECC71;
+      --sidebar-w:   280px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cinza-claro);
+      color: var(--escuro);
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: linear-gradient(180deg, #1A1A2E 0%, #2D0A1E 100%);
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      overflow-y: auto;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-logo {
+      padding: 28px 24px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sidebar-logo .icon { font-size: 2rem; margin-bottom: 6px; display: block; }
+    .sidebar-logo h2 {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+    .sidebar-logo span {
+      color: var(--rosa-claro);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .sidebar-progress {
+      padding: 16px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .progress-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--rosa), var(--roxo));
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .progress-pct {
+      color: var(--rosa-claro);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    .sidebar-nav { padding: 16px 0; flex: 1; }
+
+    .nav-section-label {
+      color: rgba(255,255,255,0.3);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 12px 24px 6px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 24px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+      cursor: pointer;
+    }
+
+    .nav-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+    .nav-link.active {
+      color: var(--rosa-claro);
+      border-left-color: var(--rosa);
+      background: rgba(192,55,106,0.1);
+    }
+
+    .nav-link .nav-icon { font-size: 1rem; flex-shrink: 0; width: 20px; text-align: center; }
+    .nav-link .nav-num {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.4);
+      font-size: 0.65rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: auto;
+      font-weight: 600;
+    }
+    .nav-link.active .nav-num { background: rgba(192,55,106,0.3); color: var(--rosa-claro); }
+
+    .sidebar-footer {
+      padding: 16px 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .emergency-box {
+      background: rgba(192,55,106,0.15);
+      border: 1px solid rgba(192,55,106,0.3);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .emergency-box p {
+      color: rgba(255,255,255,0.7);
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .emergency-box strong { color: var(--rosa-claro); }
+
+    /* ===== CONTEÚDO PRINCIPAL ===== */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    /* ===== TOP BAR ===== */
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: rgba(255,248,245,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(192,55,106,0.12);
+      padding: 12px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+    }
+
+    .topbar-chapter { font-size: 0.85rem; color: var(--cinza); font-weight: 500; }
+    .topbar-chapter span { color: var(--rosa); font-weight: 700; }
+
+    .topbar-nav { display: flex; gap: 8px; }
+
+    .btn-nav {
+      background: #fff;
+      border: 1px solid rgba(192,55,106,0.2);
+      color: var(--rosa);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-nav:hover { background: var(--rosa); color: #fff; }
+    .btn-nav:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    /* ===== PÁGINAS ===== */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ===== CAPA ===== */
+    .cover {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 55%, #1A1A2E 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 75% 40%, rgba(192,55,106,0.2) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 70%, rgba(123,63,140,0.18) 0%, transparent 60%);
+    }
+
+    .cover-inner { position: relative; z-index: 2; max-width: 680px; }
+
+    .cover-badge {
+      display: inline-block;
+      background: rgba(192,55,106,0.25);
+      border: 1px solid rgba(192,55,106,0.5);
+      color: var(--rosa-claro);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .cover-icon { font-size: 5rem; margin-bottom: 24px; display: block; filter: drop-shadow(0 8px 24px rgba(192,55,106,0.4)); }
+
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .cover h1 em { color: var(--rosa-claro); font-style: italic; }
+
+    .cover-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .cover-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--rosa), var(--roxo));
+      border-radius: 3px;
+      margin: 0 auto 32px;
+    }
+
+    .cover-author {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+      margin-bottom: 48px;
+    }
+
+    .cover-toc {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .cover-toc-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 14px;
+    }
+
+    .cover-toc-item .num {
+      color: var(--rosa-claro);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .cover-toc-item p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(192,55,106,0.4);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .btn-start:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(192,55,106,0.5); }
+
+    .cover-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 100px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+    }
+
+    .btn-download:hover {
+      border-color: rgba(242,120,159,0.7);
+      color: #F2789F;
+      background: rgba(192,55,106,0.1);
+    }
+
+    /* ===== CAPÍTULOS ===== */
+    .chapter {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 48px 80px;
+    }
+
+    .chapter-header {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--rosa-pale);
+    }
+
+    .chapter-num {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .chapter h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--escuro);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .chapter h1 em { color: var(--rosa); font-style: italic; }
+
+    .chapter-intro {
+      font-size: 1.1rem;
+      color: var(--cinza);
+      line-height: 1.75;
+      font-style: italic;
+      border-left: 4px solid var(--rosa);
+      padding-left: 20px;
+      margin-top: 20px;
+    }
+
+    .chapter p {
+      font-size: 1rem;
+      color: #3a3a52;
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    /* ===== SEMANA HEADER dentro da página ===== */
+    .week-banner {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 55%, #1A1A2E 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 56px;
+    }
+
+    .week-banner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(192,55,106,0.18) 0%, transparent 70%);
+    }
+
+    .week-banner-inner { position: relative; z-index: 2; }
+
+    .week-badge {
+      display: inline-block;
+      background: rgba(192,55,106,0.3);
+      border: 1px solid rgba(192,55,106,0.5);
+      color: var(--rosa-claro);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 100px;
+      margin-bottom: 18px;
+    }
+
+    .week-icon { font-size: 3.5rem; margin-bottom: 14px; display: block; }
+
+    .week-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .week-banner h2 em { color: var(--rosa-claro); font-style: italic; }
+
+    .week-banner p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+
+    /* ===== DIVISOR ENTRE DIAS ===== */
+    .day-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 56px 0 48px;
+    }
+
+    .day-divider::before,
+    .day-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rosa-pale);
+    }
+
+    .day-divider span {
+      color: var(--rosa);
+      font-size: 1.2rem;
+    }
+
+    /* ===== EXERCÍCIO ===== */
+    .exercise {
+      background: linear-gradient(135deg, #1A1A2E, #2D0A1E);
+      border-radius: 20px;
+      padding: 36px;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exercise::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 90% 50%, rgba(192,55,106,0.12) 0%, transparent 70%);
+    }
+
+    .exercise-inner { position: relative; z-index: 2; }
+
+    .exercise-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(192,55,106,0.25);
+      border: 1px solid rgba(192,55,106,0.4);
+      color: var(--rosa-claro);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .exercise h3 {
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .exercise > p, .exercise p { color: rgba(255,255,255,0.75); font-size: 0.95rem; margin-bottom: 16px; }
+
+    .exercise-step {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 14px;
+    }
+
+    .exercise-step-num {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .exercise-step p { color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0; }
+
+    .exercise-textarea {
+      width: 100%;
+      min-height: 120px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: rgba(255,255,255,0.9);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      resize: vertical;
+      outline: none;
+      margin-top: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .exercise-textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .exercise-textarea:focus { border-color: var(--rosa-claro); }
+
+    /* ===== MOOD CHIPS ===== */
+    .mood-row {
+      display: flex;
+      gap: 8px;
+      margin: 14px 0 16px;
+      flex-wrap: wrap;
+    }
+
+    .mood-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 100px;
+      padding: 8px 18px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.1s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mood-chip input[type="checkbox"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 0; height: 0;
+      margin: 0; padding: 0;
+      opacity: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .mood-chip:has(input:checked),
+    .mood-chip.selected {
+      background: rgba(192,55,106,0.55);
+      border-color: #F2789F;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .mood-chip:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.35); }
+    .mood-chip:has(input:checked):hover, .mood-chip.selected:hover { background: rgba(192,55,106,0.7); }
+    .mood-chip:active { transform: scale(0.96); }
+
+    /* ===== AFIRMAÇÃO ===== */
+    .affirmation-box {
+      background: linear-gradient(135deg, var(--rosa-pale), #f5e8ff);
+      border-radius: 14px;
+      padding: 22px 28px;
+      margin-top: 20px;
+      border: 1px solid rgba(192,55,106,0.15);
+      text-align: center;
+    }
+
+    .affirmation-box .aff-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--rosa);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .affirmation-box p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--escuro);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ===== COMO USAR ===== */
+    .how-to-box {
+      background: linear-gradient(135deg, var(--rosa-pale), #f5e8ff);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 32px 0;
+      border: 1px solid rgba(192,55,106,0.15);
+    }
+
+    .how-to-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--escuro);
+      margin-bottom: 18px;
+    }
+
+    .how-to-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .how-to-num {
+      width: 26px; height: 26px;
+      background: linear-gradient(135deg, var(--rosa), var(--roxo));
+      border-radius: 50%;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .how-to-item p { font-size: 0.95rem; color: #3a3a52; margin: 0; line-height: 1.65; }
+
+    .promise-box {
+      background: linear-gradient(135deg, #1A1A2E, #2D0A1E);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin: 28px 0;
+      text-align: center;
+    }
+
+    .promise-box .emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+
+    .promise-box p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .promise-box p em { color: var(--rosa-claro); }
+
+    /* ===== ENCERRAMENTO ===== */
+    .closing-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 55%, #1A1A2E 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .closing-page::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(192,55,106,0.18) 0%, transparent 70%);
+    }
+
+    .closing-inner { position: relative; z-index: 2; max-width: 600px; }
+
+    .closing-page h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+
+    .closing-page h2 em { color: var(--rosa-claro); font-style: italic; }
+
+    .closing-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--rosa), var(--roxo));
+      border-radius: 3px;
+      margin: 28px auto;
+    }
+
+    .letter-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 24px 0;
+      text-align: left;
+    }
+
+    .letter-box p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.85;
+      font-style: italic;
+      margin-bottom: 14px;
+    }
+
+    .letter-box p:last-child { margin-bottom: 0; }
+    .letter-box p em { color: var(--rosa-claro); }
+
+    /* ===== BARRA MOBILE INFERIOR ===== */
+    .mobile-nav { display: none; }
+
+    /* ===== RESPONSIVO ===== */
+    @media (max-width: 900px) {
+      .sidebar  { display: none; }
+      .main     { margin-left: 0; }
+      .chapter  { padding: 28px 20px 100px; }
+      .week-banner { padding: 36px 24px; margin-bottom: 40px; }
+
+      .topbar {
+        padding: 10px 16px;
+        gap: 8px;
+      }
+      .topbar-chapter {
+        font-size: 0.78rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 180px;
+      }
+      .topbar-nav { display: none; }
+
+      .cover {
+        padding: 32px 20px 90px;
+        min-height: auto;
+        justify-content: flex-start;
+      }
+      .cover-icon      { font-size: 3rem; margin-bottom: 12px; }
+      .cover h1        { font-size: clamp(1.8rem, 8vw, 2.6rem); margin-bottom: 10px; }
+      .cover-subtitle  { font-size: 0.95rem; margin-bottom: 20px; }
+      .cover-divider   { margin: 0 auto 14px; }
+      .cover-author    { margin-bottom: 20px; }
+      .cover-badge     { margin-bottom: 16px; }
+      .cover-toc       { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; }
+      .cover-toc-item  { padding: 10px; }
+      .cover-toc-item p { font-size: 0.78rem; }
+
+      .btn-start {
+        font-size: 1rem;
+        padding: 16px 28px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .exercise { padding: 24px 20px; }
+
+      .closing-page { padding: 48px 20px; }
+
+      .mobile-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        background: rgba(255,248,245,0.97);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid rgba(192,55,106,0.15);
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+        gap: 10px;
+        z-index: 200;
+        box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      }
+
+      .mobile-btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 48px;
+        border-radius: 14px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s, transform 0.15s;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      .mobile-btn:active { transform: scale(0.96); opacity: 0.85; }
+      .mobile-btn:disabled { opacity: 0.3; pointer-events: none; }
+
+      .mobile-btn-prev {
+        background: #fff;
+        color: var(--rosa);
+        border: 2px solid rgba(192,55,106,0.25);
+        max-width: 110px;
+      }
+
+      .mobile-btn-next {
+        background: linear-gradient(135deg, var(--rosa), var(--roxo));
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(192,55,106,0.35);
+      }
+
+      .mobile-btn-menu {
+        background: var(--rosa-pale);
+        color: var(--rosa);
+        max-width: 56px;
+        flex: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .cover-toc { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===== MENU GAVETA MOBILE ===== */
+    .chapter-menu-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 300;
+      backdrop-filter: blur(4px);
+    }
+
+    .chapter-menu-overlay.open { display: flex; align-items: flex-end; }
+
+    .chapter-menu-drawer {
+      background: linear-gradient(180deg, #1A1A2E, #2D0A1E);
+      width: 100%;
+      border-radius: 24px 24px 0 0;
+      padding: 20px 0 calc(20px + env(safe-area-inset-bottom));
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .chapter-menu-handle {
+      width: 40px; height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      margin: 0 auto 16px;
+    }
+
+    .chapter-menu-title {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0 24px 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 8px;
+    }
+
+    .chapter-menu-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.92rem;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      transition: background 0.2s;
+      border: none;
+      background: transparent;
+      width: 100%;
+      text-align: left;
+    }
+
+    .chapter-menu-item:active { background: rgba(255,255,255,0.08); }
+    .chapter-menu-item.active { color: var(--rosa-claro); }
+    .chapter-menu-item .ci-icon { font-size: 1.1rem; width: 22px; text-align: center; }
+
+    .chapter-menu-close {
+      display: block;
+      margin: 12px 24px 0;
+      background: rgba(192,55,106,0.2);
+      border: 1px solid rgba(192,55,106,0.3);
+      color: var(--rosa-claro);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: 12px;
+      width: calc(100% - 48px);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       SIDEBAR
+  =========================== -->
+  <nav class="sidebar">
+    <div class="sidebar-logo">
+      <span class="icon">🌸</span>
+      <h2>30 Dias para Me Reconquistar</h2>
+      <span>Workbook de Cura · Companion</span>
+    </div>
+
+    <div class="sidebar-progress">
+      <div class="progress-label">Seu progresso</div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-pct" id="progressPct">0%</div>
+    </div>
+
+    <div class="sidebar-nav">
+      <div class="nav-section-label">Jornada</div>
+
+      <a class="nav-link active" onclick="goTo(0)">
+        <span class="nav-icon">📖</span> Capa
+      </a>
+      <a class="nav-link" onclick="goTo(1)">
+        <span class="nav-icon">📋</span> Como Usar
+      </a>
+      <a class="nav-link" onclick="goTo(2)">
+        <span class="nav-icon">🌧️</span> Semana 1 — A Dor
+        <span class="nav-num">1–7</span>
+      </a>
+      <a class="nav-link" onclick="goTo(3)">
+        <span class="nav-icon">🕊️</span> Semana 2 — A Culpa
+        <span class="nav-num">8–14</span>
+      </a>
+      <a class="nav-link" onclick="goTo(4)">
+        <span class="nav-icon">🦋</span> Semana 3 — Você
+        <span class="nav-num">15–21</span>
+      </a>
+      <a class="nav-link" onclick="goTo(5)">
+        <span class="nav-icon">🌟</span> Semana 4 — Nova Você
+        <span class="nav-num">22–30</span>
+      </a>
+      <a class="nav-link" onclick="goTo(6)">
+        <span class="nav-icon">🌸</span> Encerramento
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="emergency-box">
+        <p>Em caso de perigo imediato:<br/>
+        <strong>180</strong> — Central da Mulher<br/>
+        <strong>190</strong> — Polícia Militar</p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===========================
+       MENU GAVETA MOBILE
+  =========================== -->
+  <div class="chapter-menu-overlay" id="chapterMenuOverlay" onclick="closeChapterMenu()">
+    <div class="chapter-menu-drawer" onclick="event.stopPropagation()">
+      <div class="chapter-menu-handle"></div>
+      <div class="chapter-menu-title">Semanas</div>
+      <button class="chapter-menu-item active" id="mi-0" onclick="goTo(0);closeChapterMenu()"><span class="ci-icon">📖</span> Capa</button>
+      <button class="chapter-menu-item" id="mi-1" onclick="goTo(1);closeChapterMenu()"><span class="ci-icon">📋</span> Como Usar</button>
+      <button class="chapter-menu-item" id="mi-2" onclick="goTo(2);closeChapterMenu()"><span class="ci-icon">🌧️</span> Semana 1 — Reconhecendo a Dor (1–7)</button>
+      <button class="chapter-menu-item" id="mi-3" onclick="goTo(3);closeChapterMenu()"><span class="ci-icon">🕊️</span> Semana 2 — Liberando a Culpa (8–14)</button>
+      <button class="chapter-menu-item" id="mi-4" onclick="goTo(4);closeChapterMenu()"><span class="ci-icon">🦋</span> Semana 3 — Redescobrindo Você (15–21)</button>
+      <button class="chapter-menu-item" id="mi-5" onclick="goTo(5);closeChapterMenu()"><span class="ci-icon">🌟</span> Semana 4 — A Nova Você (22–30)</button>
+      <button class="chapter-menu-item" id="mi-6" onclick="goTo(6);closeChapterMenu()"><span class="ci-icon">🌸</span> Encerramento</button>
+      <button class="chapter-menu-close" onclick="closeChapterMenu()">Fechar</button>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+      <div class="topbar-chapter">Lendo: <span id="chapterLabel">Capa</span></div>
+      <div class="topbar-nav">
+        <button class="btn-nav" id="btnPrev" onclick="prevPage()" disabled>← Anterior</button>
+        <button class="btn-nav" id="btnNext" onclick="nextPage()">Próximo →</button>
+      </div>
+    </div>
+
+    <!-- BARRA INFERIOR MOBILE -->
+    <div class="mobile-nav">
+      <button class="mobile-btn mobile-btn-prev" id="mbPrev" onclick="prevPage()" disabled>← Ant.</button>
+      <button class="mobile-btn mobile-btn-menu" onclick="openChapterMenu()">☰</button>
+      <button class="mobile-btn mobile-btn-next" id="mbNext" onclick="nextPage()">Próximo →</button>
+    </div>
+
+    <!-- ========================
+         PÁGINA 0 — CAPA
+    ======================== -->
+    <div class="page active" id="page-0">
+      <div class="cover">
+        <div class="cover-inner">
+          <div class="cover-badge">Workbook de Cura · Complemento ao E-book</div>
+          <span class="cover-icon">🌸</span>
+          <h1>30 Dias para<br/><em>Me Reconquistar</em></h1>
+          <p class="cover-subtitle">Um diário guiado de cura, autoestima e reconstrução após o relacionamento abusivo.</p>
+          <div class="cover-divider"></div>
+          <p class="cover-author">Companheiro do e-book "Você Merece Ser Amada"</p>
+
+          <div class="cover-toc">
+            <div class="cover-toc-item">
+              <div class="num">Semana 1 · Dias 1–7</div>
+              <p>Reconhecendo a dor</p>
+            </div>
+            <div class="cover-toc-item">
+              <div class="num">Semana 2 · Dias 8–14</div>
+              <p>Liberando o peso da culpa</p>
+            </div>
+            <div class="cover-toc-item">
+              <div class="num">Semana 3 · Dias 15–21</div>
+              <p>Redescobrindo quem você é</p>
+            </div>
+            <div class="cover-toc-item">
+              <div class="num">Semana 4 · Dias 22–30</div>
+              <p>Construindo a nova você</p>
+            </div>
+          </div>
+
+          <div class="cover-actions">
+            <button class="btn-start" onclick="nextPage()">
+              Começar a Jornada →
+            </button>
+            <a class="btn-download" href="workbook-30-dias-print.html" target="_blank">
+              ⬇️ Baixar versão PDF
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================
+         PÁGINA 1 — COMO USAR
+    ======================== -->
+    <div class="page" id="page-1">
+      <div class="chapter">
+        <div class="chapter-header">
+          <div class="chapter-num">Guia de Uso</div>
+          <h1>Como usar <em>este workbook</em></h1>
+          <p class="chapter-intro">Este workbook foi criado para ser o seu espaço seguro. Um lugar onde você pode ser honesta, bagunçada, vulnerável e corajosa — tudo ao mesmo tempo.</p>
+        </div>
+
+        <p>Não existe resposta errada aqui. Existe apenas a sua verdade, e ela merece ser ouvida — começando por você mesma.</p>
+
+        <div class="how-to-box">
+          <h3>🌿 Como aproveitar ao máximo</h3>
+          <div class="how-to-item"><div class="how-to-num">1</div><p><strong>Um dia de cada vez.</strong> Não tente fazer tudo de uma vez. Cada seção foi pensada para um único dia — respeite o seu ritmo.</p></div>
+          <div class="how-to-item"><div class="how-to-num">2</div><p><strong>Escreva sem filtros.</strong> Este workbook é somente seu. Permita-se escrever o que realmente sente, sem julgamentos.</p></div>
+          <div class="how-to-item"><div class="how-to-num">3</div><p><strong>Repita os dias se precisar.</strong> Se um dia foi especialmente difícil, tudo bem ficar nele por mais tempo. Cura não tem prazo.</p></div>
+          <div class="how-to-item"><div class="how-to-num">4</div><p><strong>Leia a afirmação em voz alta.</strong> Ao final de cada dia, leia a afirmação para si mesma — de preferência na frente do espelho.</p></div>
+          <div class="how-to-item"><div class="how-to-num">5</div><p><strong>Celebre cada pequena conquista.</strong> Terminar um dia já é vitória. Não subestime o quanto você está crescendo.</p></div>
+        </div>
+
+        <div class="promise-box">
+          <span class="emoji">💌</span>
+          <p>"Você não precisa estar <em>curada</em> para começar.<br/>Você só precisa estar disposta a dar o próximo passo."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================
+         PÁGINA 2 — SEMANA 1
+    ======================== -->
+    <div class="page" id="page-2">
+      <div class="chapter">
+
+        <div class="week-banner">
+          <div class="week-banner-inner">
+            <div class="week-badge">Semana 1 · Dias 1 ao 7</div>
+            <span class="week-icon">🌧️</span>
+            <h2>Reconhecendo<br/><em>a Dor</em></h2>
+            <p>Antes de curar, é preciso sentir. Esta semana é sobre olhar para dentro com honestidade e compaixão — sem fugir do que dói.</p>
+          </div>
+        </div>
+
+        <!-- DIA 1 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 1 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>O que eu realmente <em>estou sentindo</em></h1>
+          <p class="chapter-intro">Muitas vezes ficamos tão ocupadas sobrevivendo que nem percebemos o que estamos sentindo de verdade. Hoje, vamos parar e simplesmente nomear.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Nomeie suas emoções</h3>
+            <p>Marque o que você está sentindo agora. Pode marcar quantas quiser — não existe resposta errada.</p>
+            <div class="mood-row">
+              <label class="mood-chip"><input type="checkbox">😔 Tristeza</label>
+              <label class="mood-chip"><input type="checkbox">😠 Raiva</label>
+              <label class="mood-chip"><input type="checkbox">😶 Confusão</label>
+              <label class="mood-chip"><input type="checkbox">😰 Medo</label>
+              <label class="mood-chip"><input type="checkbox">😔 Vergonha</label>
+              <label class="mood-chip"><input type="checkbox">😮‍💨 Alívio</label>
+              <label class="mood-chip"><input type="checkbox">💔 Saudade</label>
+              <label class="mood-chip"><input type="checkbox">😶‍🌫️ Vazio</label>
+              <label class="mood-chip"><input type="checkbox">😤 Frustração</label>
+              <label class="mood-chip"><input type="checkbox">🥺 Solidão</label>
+            </div>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Marque as emoções que você está sentindo agora.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escolha uma dessas emoções e escreva sobre ela com mais profundidade.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Leia o que escreveu em voz alta. Perceba como se sente ao se ouvir.</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva aqui livremente. Este espaço é seu..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meus sentimentos são válidos. Senti-los não me torna fraca — me torna humana."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 2 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 2 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>O que <em>mudou</em> em mim</h1>
+          <p class="chapter-intro">O abuso não deixa só marcas visíveis. Ele muda a forma como você se vê, como você fala, o quanto você ri, o quanto você se permite querer. Hoje é hora de observar essas mudanças sem julgamento.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Antes e depois</h3>
+            <p>Complete as frases abaixo com honestidade.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Antes desse relacionamento, eu era...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Hoje, eu percebo que deixei de...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Uma coisa que quero de volta é...</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva com honestidade e sem julgamentos. Você merece clareza sobre quem você é..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Eu ainda sou quem eu era. Ela está aqui — esperando para ser reconhecida."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 3 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 3 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>As cenas que <em>ficaram</em></h1>
+          <p class="chapter-intro">Algumas memórias ficam em loop na nossa cabeça — às vezes as mais dolorosas, às vezes as mais confusas. Dar nome a elas é um passo para parar de ser refém delas.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Carta para uma memória</h3>
+            <p>Escolha uma memória que ainda te machuca. Escreva para ela — como se fosse uma pessoa. Diga o que você nunca disse.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Identifique a memória que mais aparece e que ainda dói.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escreva para ela como se fosse uma pessoa: "Memória, eu preciso te dizer que..."</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Diga o que você nunca teve a chance de dizer em voz alta.</p></div>
+            <textarea class="exercise-textarea" placeholder="Memória, eu preciso te dizer que..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Essa memória não define meu futuro. Ela é parte da minha história — não o fim dela."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 4 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 4 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>O que eu <em>normalizei</em></h1>
+          <p class="chapter-intro">Uma das marcas mais profundas do abuso é a normalização. A gente começa a achar que certos comportamentos são "normais" num relacionamento — quando não são, nunca foram.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Isso não era normal</h3>
+            <p>Liste comportamentos que você aceitou e que hoje reconhece como abusivos ou errados. Escrever isso é um ato de coragem.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Reflita sobre comportamentos que você naturalizou durante o relacionamento.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Liste cada um deles — sem julgamento de si mesma, apenas com consciência.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Para cada um, escreva: "Isso não era normal. Eu merecia mais."</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva aqui os comportamentos que você reconhece como abusivos ou errados..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Eu merecia — e mereço — ser tratada com respeito, carinho e dignidade. Sempre."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 5 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 5 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>Meu corpo <em>também lembra</em></h1>
+          <p class="chapter-intro">O trauma não fica só na mente — ele se instala no corpo. Tensão no peito, dor de cabeça constante, insônia, apetite irregular. Seu corpo esteve na linha de frente por muito tempo.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Escuta corporal</h3>
+            <p>Feche os olhos por um minuto. Respire fundo. Depois responda com honestidade.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Onde no meu corpo eu sinto a dor mais frequentemente?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>O que meu corpo precisa agora que nunca recebeu atenção?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Um gesto de cuidado que posso dar ao meu corpo hoje:</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva com gentileza. Seu corpo merece ser ouvido..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meu corpo merece cuidado, carinho e descanso. Vou tratá-lo com a gentileza que ele merece."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 6 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 6 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>Quem esteve ao meu <em>lado</em></h1>
+          <p class="chapter-intro">O isolamento é uma das ferramentas mais poderosas do abusador. Mas mesmo nos momentos mais sombrios, alguém esteve presente — às vezes de forma discreta. Hoje, vamos reconhecer essa rede.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Minha rede de amor</h3>
+            <p>Pense nas pessoas que se importam com você — família, amigas, profissionais de saúde, comunidades online.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Quem esteve presente, mesmo que discretamente, durante esse período?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escreva os nomes e o que cada uma representa para você.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Com qual dessas pessoas você poderia se conectar mais esta semana?</p></div>
+            <textarea class="exercise-textarea" placeholder="Nome e o que essa pessoa significa para mim..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Não estou sozinha. Há pessoas que me amam e estão prontas para caminhar comigo."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 7 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 7 · Semana 1 — Reconhecendo a Dor</div>
+          <h1>Uma semana de <em>coragem</em></h1>
+          <p class="chapter-intro">Você chegou até aqui. Sete dias olhando para dentro, sem desviar o olhar. Isso exige uma coragem que muita gente nunca vai entender — mas você sabe o quanto foi difícil.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Carta para a minha coragem</h3>
+            <p>Escreva uma carta curta para si mesma reconhecendo o que você já enfrentou esta semana. Seja gentil. Você merece.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>O que foi mais difícil para você encarar esta semana?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Como você se sentiu ao enfrentar isso com honestidade?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Escreva para si mesma: "Querida eu, esta semana você..."</p></div>
+            <textarea class="exercise-textarea" placeholder="Querida eu, esta semana você..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação da semana</div>
+          <p>"Eu encarei a dor de frente. Sou mais forte do que acreditava. E isso é só o começo."</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================
+         PÁGINA 3 — SEMANA 2
+    ======================== -->
+    <div class="page" id="page-3">
+      <div class="chapter">
+
+        <div class="week-banner">
+          <div class="week-banner-inner">
+            <div class="week-badge">Semana 2 · Dias 8 ao 14</div>
+            <span class="week-icon">🕊️</span>
+            <h2>Liberando o<br/><em>Peso da Culpa</em></h2>
+            <p>A culpa é uma das cargas mais pesadas que uma sobrevivente carrega. Esta semana, vamos depositar esse peso onde ele realmente pertence — e não em você.</p>
+          </div>
+        </div>
+
+        <!-- DIA 8 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 8 · Semana 2 — Liberando a Culpa</div>
+          <h1>Não foi <em>culpa sua</em></h1>
+          <p class="chapter-intro">Você pode ter ouvido "você me provoca", "se você não fizesse isso, eu não reagiria assim". Essas palavras foram colocadas dentro de você — mas elas nunca foram verdade.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Devolvendo a responsabilidade</h3>
+            <p>Escreva as frases de culpa que você ainda carrega. Depois escreva a verdade ao lado de cada uma.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Liste as frases de culpa que você internalizou ao longo do relacionamento.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Para cada frase, escreva a verdade: "Mas a verdade é que..."</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Leia as verdades em voz alta. Perceba como seu corpo reage a elas.</p></div>
+            <textarea class="exercise-textarea" placeholder="Eu me culpei por... / Mas a verdade é que..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"O abuso foi uma escolha dele — nunca uma consequência minha."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 9 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 9 · Semana 2 — Liberando a Culpa</div>
+          <h1>Por que eu <em>fiquei</em></h1>
+          <p class="chapter-intro">"Por que você não foi embora?" — essa é a pergunta mais cruel. Hoje vamos entender, com compaixão, os reais motivos que te mantiveram nessa relação. Sem julgamento.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Entendendo minha história</h3>
+            <p>Responda com honestidade. Seus motivos eram válidos.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Eu fiquei porque tinha medo de...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Eu acreditei que ele mudaria quando...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>O que me deu forças para sair (ou considerar sair) foi...</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva com honestidade e sem julgamento. Você fez o que pôde com o que sabia..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Eu fiz o melhor que pude com o que sabia e tinha naquele momento. Isso é suficiente."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 10 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 10 · Semana 2 — Liberando a Culpa</div>
+          <h1>Perdoando a <em>mim mesma</em></h1>
+          <p class="chapter-intro">Perdoar a si mesma não é dizer que estava tudo bem. É libertar-se do peso de continuar se punindo por algo que não foi sua culpa — e que já passou.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Ato de perdão</h3>
+            <p>Escreva uma declaração de perdão a si mesma. Seja específica — mencione o que você está escolhendo soltar.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>O que você ainda carrega e precisa se perdoar?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escreva: "Hoje, eu escolho me perdoar por..."</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Como você se sente ao soltar esse peso? Descreva essa sensação.</p></div>
+            <textarea class="exercise-textarea" placeholder="Hoje, eu escolho me perdoar por..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Eu me perdoo. Eu me liberto. Eu mereço recomeçar leve."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 11 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 11 · Semana 2 — Liberando a Culpa</div>
+          <h1>As vozes que <em>internalizei</em></h1>
+          <p class="chapter-intro">Com o tempo, as palavras do abusador passam a soar como sua própria voz. "Sou demais", "sou difícil", "ninguém vai querer ficar comigo." Hoje vamos identificar essas vozes — e contradizê-las.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Reescrevendo a narrativa</h3>
+            <p>Complete o exercício abaixo com consciência e coragem.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Uma coisa negativa que eu penso sobre mim mesma (de onde veio essa ideia?).</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Foi algo que me disseram? Quando? Em que contexto?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>A versão verdadeira e gentil dessa frase é...</p></div>
+            <textarea class="exercise-textarea" placeholder="A voz negativa diz... / De onde veio... / Mas a verdade gentil é..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"As palavras deles não me definem. Quem eu sou é muito maior do que o que me disseram."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 12 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 12 · Semana 2 — Liberando a Culpa</div>
+          <h1>O que eu <em>sinto raiva</em></h1>
+          <p class="chapter-intro">A raiva é uma emoção válida e necessária — ela é o sinal de que você reconhece a injustiça do que viveu. Não é preciso ter medo dela. Ela pode ser combustível para a sua cura.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Carta de raiva</h3>
+            <p>Escreva tudo o que você nunca pôde dizer. Sem filtros, sem educação. Esta carta não será enviada — é só sua.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>O que te causou mais raiva nessa relação?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escreva sem filtros: "Eu sinto raiva porque..."</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>O que essa raiva está te dizendo sobre o que você merece?</p></div>
+            <textarea class="exercise-textarea" placeholder="Eu sinto raiva porque..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Minha raiva me diz que eu mereço algo melhor — e ela está certa."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 13 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 13 · Semana 2 — Liberando a Culpa</div>
+          <h1>O que eu <em>deixo ir</em> hoje</h1>
+          <p class="chapter-intro">Soltar não significa esquecer. Significa escolher não carregar mais aquilo. Hoje, você tem a permissão de se livrar de algo — uma crença, uma memória, um peso — que não pertence mais a você.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Ritual de soltura</h3>
+            <p>Escreva o que você está soltando. Depois leia em voz alta, de pé, com os ombros abertos.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Hoje eu escolho deixar ir...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Ao deixar isso ir, eu abro espaço para...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Leia em voz alta, de pé, com os ombros abertos e respire fundo.</p></div>
+            <textarea class="exercise-textarea" placeholder="Hoje eu escolho deixar ir... / Ao deixar isso ir, abro espaço para..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Eu solto o passado com gratidão pelo aprendizado e com coragem para o novo."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 14 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 14 · Semana 2 — Liberando a Culpa</div>
+          <h1>Eu sobrevivi. Eu <em>sou forte</em>.</h1>
+          <p class="chapter-intro">Duas semanas. Quatorze dias de olhar para dentro com honestidade e compaixão. Isso não é pouca coisa — é um ato de amor profundo por si mesma.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Mapa da minha força</h3>
+            <p>Liste evidências concretas da sua força — coisas que você fez, suportou, superou. A prova de que você é mais do que imagina.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Pense em situações difíceis que você enfrentou e sobreviveu.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Liste pelo menos 5 evidências concretas da sua força e resiliência.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Releia tudo. Perceba: que mulher extraordinária você é.</p></div>
+            <textarea class="exercise-textarea" placeholder="Evidências da minha força: eu sobrevivi a... / eu superei... / eu fui capaz de..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação da semana</div>
+          <p>"A culpa não é minha. A força, sim. E ela sempre esteve aqui."</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================
+         PÁGINA 4 — SEMANA 3
+    ======================== -->
+    <div class="page" id="page-4">
+      <div class="chapter">
+
+        <div class="week-banner">
+          <div class="week-banner-inner">
+            <div class="week-badge">Semana 3 · Dias 15 ao 21</div>
+            <span class="week-icon">🦋</span>
+            <h2>Redescobrindo<br/><em>Quem Você É</em></h2>
+            <p>Quando o abuso acaba, muitas mulheres se perguntam: "Quem sou eu sem isso?" Esta semana, você vai se reencontrar.</p>
+          </div>
+        </div>
+
+        <!-- DIA 15 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 15 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>O que me <em>faz sorrir</em></h1>
+          <p class="chapter-intro">Quantas coisas que você amava foram ficando para trás nesse relacionamento? Músicas, comidas, hobbies, pessoas. Hoje é hora de se lembrar do que te alegra.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meu mapa de alegrias</h3>
+            <p>Escreva sem pensar muito — o que vem à mente quando você pensa em alegria pura?</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Músicas que amo, comidas que me fazem feliz, atividades que me fazem perder a noção do tempo.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Lugares onde me sinto eu mesma. Pessoas com quem me sinto leve e livre.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Uma coisa que quero voltar a fazer esta semana:</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva tudo que te traz alegria — sem filtros, sem medo de pedir demais..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Minha alegria não precisa de permissão. Ela é minha e eu a escolho."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 16 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 16 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>Meus <em>valores</em> mais profundos</h1>
+          <p class="chapter-intro">Num relacionamento abusivo, nossos valores são constantemente desrespeitados e invalidados. Reconectá-los é essencial para saber o que você quer e o que não vai aceitar nunca mais.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>O que importa para mim</h3>
+            <p>Marque os valores mais importantes para você — estes são sua bússola.</p>
+            <div class="mood-row">
+              <label class="mood-chip"><input type="checkbox">💛 Lealdade</label>
+              <label class="mood-chip"><input type="checkbox">🌿 Liberdade</label>
+              <label class="mood-chip"><input type="checkbox">🤝 Respeito</label>
+              <label class="mood-chip"><input type="checkbox">💖 Amor</label>
+              <label class="mood-chip"><input type="checkbox">🔐 Segurança</label>
+              <label class="mood-chip"><input type="checkbox">✨ Autenticidade</label>
+              <label class="mood-chip"><input type="checkbox">📚 Crescimento</label>
+              <label class="mood-chip"><input type="checkbox">😂 Alegria</label>
+              <label class="mood-chip"><input type="checkbox">🕊️ Paz</label>
+              <label class="mood-chip"><input type="checkbox">💪 Independência</label>
+            </div>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Marque os valores que mais ressoam com quem você realmente é.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Por que esses valores são importantes para você? Escreva com profundidade.</p></div>
+            <textarea class="exercise-textarea" placeholder="Meus valores mais profundos são... e importam porque..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meus valores são minha identidade. Daqui em diante, viverei de acordo com eles."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 17 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 17 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>Meus <em>sonhos</em> que ficaram pausados</h1>
+          <p class="chapter-intro">O abuso tem o poder de silenciar nossos sonhos. Pouco a pouco, você pode ter deixado de imaginar um futuro para si mesma. Hoje, vamos religar esse interruptor.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Sonhos sem prazo de validade</h3>
+            <p>Complete com o que vier ao coração — sem censura, sem medo de parecer grande demais.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Um sonho que abandonei durante o relacionamento...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Se eu pudesse fazer qualquer coisa, sem medo, seria...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Um pequeno passo que posso dar em direção a esse sonho esta semana:</p></div>
+            <textarea class="exercise-textarea" placeholder="Escreva seus sonhos sem filtros — eles são válidos, possíveis e seus..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meus sonhos não têm prazo de validade. É a hora de retomá-los."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 18 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 18 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>O que eu <em>admiro</em> em mim</h1>
+          <p class="chapter-intro">Elogiar a si mesma pode parecer estranho — especialmente depois de anos ouvindo críticas. Mas olhar para suas próprias qualidades com admiração é um músculo que precisa ser treinado.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meu elogio favorito</h3>
+            <p>Liste pelo menos 7 qualidades suas. Pode incluir coisas simples: "sou persistente", "tenho bom humor", "cuido bem de quem amo".</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Liste pelo menos 7 qualidades que você possui — sem minimizar nenhuma.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Para cada uma, escreva um exemplo concreto de quando você a demonstrou.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Leia em voz alta: "Eu sou uma mulher que..." Deixe as palavras entrar.</p></div>
+            <textarea class="exercise-textarea" placeholder="Minhas qualidades: 1. ... 2. ... 3. ... (escreva pelo menos 7)"></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Eu tenho qualidades únicas e preciosas. Sou digna de admiração — a minha própria."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 19 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 19 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>Meus <em>limites</em> como proteção</h1>
+          <p class="chapter-intro">Limites não são muros — são sinais de respeito por si mesma. E estabelecê-los é um dos atos mais importantes na reconstrução da sua identidade.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meus novos limites</h3>
+            <p>Complete as frases. Estes são seus limites — eles são sagrados.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Eu não vou mais aceitar...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Se alguém me tratar assim, eu vou...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>O que aprendi sobre o que preciso num relacionamento saudável:</p></div>
+            <textarea class="exercise-textarea" placeholder="Meus limites sagrados: Eu não aceito mais... / Se isso acontecer, vou..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meus limites são um ato de amor por mim mesma. Eles existem e serão respeitados."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 20 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 20 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>Uma coisa boa que <em>aconteceu hoje</em></h1>
+          <p class="chapter-intro">Treinar o olhar para o bem não é ingenuidade — é uma ferramenta poderosa de cura. O cérebro que viveu em alerta constante precisa aprender a notar as coisas boas também.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Gratidão concreta</h3>
+            <p>Liste 3 coisas boas que aconteceram hoje — por menores que pareçam. Depois escreva como elas te fizeram sentir.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>1ª coisa boa que aconteceu hoje — e como me fez sentir.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>2ª coisa boa que aconteceu hoje — e como me fez sentir.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>3ª coisa boa que aconteceu hoje — e como me fez sentir.</p></div>
+            <textarea class="exercise-textarea" placeholder="1. Hoje aconteceu... e isso me fez sentir... 2. ... 3. ..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Há beleza ao meu redor. Estou aprendendo a vê-la de novo."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 21 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 21 · Semana 3 — Redescobrindo quem você é</div>
+          <h1>Eu me <em>apresento</em> de novo</h1>
+          <p class="chapter-intro">Três semanas. Você revisitou sua dor, liberou sua culpa e começou a se reencontrar. Agora é hora de se apresentar — para si mesma — como a mulher que está emergindo.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Quem sou eu</h3>
+            <p>Escreva uma apresentação sua — como se estivesse se apresentando para alguém especial pela primeira vez. Sem mencionar nenhum relacionamento.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Quem você é fora de qualquer relacionamento? O que te define de verdade?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escreva: "Meu nome é ___. Eu sou uma mulher que..."</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Leia essa apresentação em voz alta, com orgulho. Você merece se conhecer assim.</p></div>
+            <textarea class="exercise-textarea" placeholder="Meu nome é ___. Eu sou uma mulher que..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação da semana</div>
+          <p>"Eu me conheço. Eu me respeito. E estou feliz em me reencontrar."</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================
+         PÁGINA 5 — SEMANA 4
+    ======================== -->
+    <div class="page" id="page-5">
+      <div class="chapter">
+
+        <div class="week-banner">
+          <div class="week-banner-inner">
+            <div class="week-badge">Semana 4 · Dias 22 ao 30</div>
+            <span class="week-icon">🌟</span>
+            <h2>Construindo<br/><em>a Nova Você</em></h2>
+            <p>Você não está recomeçando do zero — está recomeçando com tudo o que aprendeu. Esta semana é sobre construir, com intenção, o futuro que você merece.</p>
+          </div>
+        </div>
+
+        <!-- DIA 22 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 22 · Semana 4 — Construindo a nova você</div>
+          <h1>Minha visão de <em>vida futura</em></h1>
+          <p class="chapter-intro">Como é a vida que você quer daqui a um ano? Cinco anos? Permitir-se imaginar esse futuro é o primeiro passo para criá-lo.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Carta do futuro</h3>
+            <p>Escreva uma carta da sua versão de daqui a um ano — aquela que já está vivendo a vida que você sonha. O que ela quer te dizer?</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Como é a sua vida em um ano? Onde você mora, o que faz, como se sente?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Escreva da perspectiva dessa versão futura: "Querida eu de hoje, quero te contar que..."</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>O que essa versão futura quer que você saiba sobre o caminho até ela?</p></div>
+            <textarea class="exercise-textarea" placeholder="Querida eu de hoje, quero te contar que em um ano..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"O futuro que imagino é possível. Estou construindo ele, um dia de cada vez."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 23 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 23 · Semana 4 — Construindo a nova você</div>
+          <h1>Meu <em>ritual</em> de autocuidado</h1>
+          <p class="chapter-intro">Autocuidado não é luxo — é necessidade. E não precisa ser caro ou elaborado. Pode ser uma caminhada, um banho demorado, uma xícara de chá em silêncio.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meu ritual diário</h3>
+            <p>Crie seu ritual de autocuidado. Seja realista e gentil com o momento que você está vivendo.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>De manhã, vou me presentear com...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Durante o dia, vou proteger minha energia evitando...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>À noite, vou encerrar o dia com...</p></div>
+            <textarea class="exercise-textarea" placeholder="Meu ritual: De manhã... / Durante o dia... / À noite..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Cuidar de mim não é egoísmo — é a coisa mais importante que posso fazer."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 24 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 24 · Semana 4 — Construindo a nova você</div>
+          <h1>O que eu <em>não quero mais</em></h1>
+          <p class="chapter-intro">Saber o que você não quer é tão poderoso quanto saber o que quer. Sua experiência te deu clareza — e clareza é um presente valioso.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Minha lista de não-negociáveis</h3>
+            <p>O que nunca mais tem espaço na sua vida? Pode ser comportamento, pessoas, ambientes, padrões.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Liste comportamentos que você nunca mais vai aceitar em nenhum relacionamento.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Liste ambientes ou situações que drenam sua energia e que vai evitar.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Como você se sentirá ao honrar esses não-negociáveis?</p></div>
+            <textarea class="exercise-textarea" placeholder="Nunca mais vou aceitar: ... / Nunca mais vou tolerar: ... / Esses limites me protegem porque..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meus não-negociáveis me protegem. Eles são sagrados e serão honrados."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 25 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 25 · Semana 4 — Construindo a nova você</div>
+          <h1>O que eu <em>quero de verdade</em></h1>
+          <p class="chapter-intro">Depois de listar o que não quer, é hora do outro lado: o que você deseja de verdade — num relacionamento, numa amizade, no trabalho, na vida.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Minha lista de desejos</h3>
+            <p>Escreva o que você quer e merece. Sem moderação.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>No amor, eu quero...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Na amizade, eu busco...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Na minha vida em geral, eu desejo...</p></div>
+            <textarea class="exercise-textarea" placeholder="No amor quero... / Na amizade busco... / Na minha vida desejo..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Meus desejos são legítimos. Mereço tudo o que escrevi aqui — e mais."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 26 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 26 · Semana 4 — Construindo a nova você</div>
+          <h1>Reconhecendo <em>green flags</em></h1>
+          <p class="chapter-intro">Aprendemos a detectar red flags — mas também é essencial reconhecer os green flags: os sinais de que alguém é seguro, respeitoso e genuinamente bom para você.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meu checklist de green flags</h3>
+            <p>Marque os sinais que você considera essenciais num relacionamento saudável.</p>
+            <div class="mood-row">
+              <label class="mood-chip"><input type="checkbox">✅ Respeita limites</label>
+              <label class="mood-chip"><input type="checkbox">✅ Incentiva sonhos</label>
+              <label class="mood-chip"><input type="checkbox">✅ Dialoga sem gritar</label>
+              <label class="mood-chip"><input type="checkbox">✅ Pede desculpas de verdade</label>
+              <label class="mood-chip"><input type="checkbox">✅ Me faz sentir segura</label>
+              <label class="mood-chip"><input type="checkbox">✅ Tem vida própria</label>
+            </div>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Marque os green flags que você considera inegociáveis.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Adicione outros que são importantes para você especificamente.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Como você se sente ao imaginar alguém com todos esses green flags?</p></div>
+            <textarea class="exercise-textarea" placeholder="Meus green flags essenciais são... / Eu me sentiria... ao lado de alguém assim..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Sei reconhecer o amor que faço jus. E não vou aceitar menos do que isso."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 27 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 27 · Semana 4 — Construindo a nova você</div>
+          <h1>O que <em>aprendi</em> com tudo isso</h1>
+          <p class="chapter-intro">Nenhuma experiência — mesmo as mais dolorosas — é completamente vazia de aprendizado. Hoje é hora de extrair a sabedoria da sua história, sem glamourizar a dor.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meus aprendizados</h3>
+            <p>Complete com honestidade. Esses aprendizados são seus — ninguém pode te tirar.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Aprendi sobre mim mesma que...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Aprendi sobre relacionamentos que...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>O maior presente que essa experiência me deu foi...</p></div>
+            <textarea class="exercise-textarea" placeholder="Aprendi sobre mim que... / Aprendi sobre relacionamentos que... / O maior presente foi..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Minha história me ensinou. Não me quebrou — me moldou."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 28 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 28 · Semana 4 — Construindo a nova você</div>
+          <h1>Uma promessa para <em>mim mesma</em></h1>
+          <p class="chapter-intro">Promessas para si mesma são poderosas. São um contrato de amor — e a pessoa mais importante para honrá-lo é você mesma.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Meu contrato de amor próprio</h3>
+            <p>Escreva 5 promessas que você faz a si mesma. Assine ao final.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>Liste 5 promessas concretas que você faz a si mesma a partir de hoje.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Para cada promessa, escreva por que ela é importante para você.</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Assine ao final. Este é seu contrato sagrado com você mesma.</p></div>
+            <textarea class="exercise-textarea" placeholder="Eu prometo me tratar com compaixão quando errar... / Eu prometo honrar meus limites... / Assinatura: ___"></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Sou a pessoa mais importante da minha vida. E vou honrar esse compromisso."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 29 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 29 · Semana 4 — Construindo a nova você</div>
+          <h1>O que a <em>cura</em> parece hoje</h1>
+          <p class="chapter-intro">A cura não é linear. Ela tem idas e vindas, dias bons e dias difíceis. E tudo bem. O importante é que você continua — mesmo nos dias mais duros.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Termômetro da cura</h3>
+            <p>Compare como você estava no Dia 1 com como está agora. O que mudou?</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>No Dia 1, eu me sentia...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>Hoje, eu me sinto...</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>A maior mudança que percebi em mim foi...</p></div>
+            <textarea class="exercise-textarea" placeholder="No Dia 1 eu me sentia... / Hoje me sinto... / A maior mudança foi..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação do dia</div>
+          <p>"Estou em cura. Cada dia é uma evidência do meu progresso — mesmo quando não parece."</p>
+        </div>
+
+        <div class="day-divider"><span>🌸</span></div>
+
+        <!-- DIA 30 -->
+        <div class="chapter-header">
+          <div class="chapter-num">Dia 30 · Semana 4 — Construindo a nova você</div>
+          <h1>30 dias. <em>Você chegou.</em></h1>
+          <p class="chapter-intro">Trinta dias. Você os viveu, um por um. Com honestidade, com coragem, com lágrimas e com vitórias. Hoje é um dia de celebração — e de olhar para frente.</p>
+        </div>
+        <div class="exercise">
+          <div class="exercise-inner">
+            <div class="exercise-badge">✏️ Exercício de Autoconhecimento</div>
+            <h3>Carta final para mim mesma</h3>
+            <p>Escreva uma carta para a mulher que você é agora — após 30 dias de cura. Com amor, orgulho e esperança.</p>
+            <div class="exercise-step"><div class="exercise-step-num">1</div><p>O que você quer dizer para a mulher que começou este workbook 30 dias atrás?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">2</div><p>O que você descobriu sobre si mesma que não sabia antes?</p></div>
+            <div class="exercise-step"><div class="exercise-step-num">3</div><p>Que palavras de amor e encorajamento você deixa para si mesma daqui para frente?</p></div>
+            <textarea class="exercise-textarea" placeholder="Querida eu, após 30 dias, quero te dizer que..."></textarea>
+          </div>
+        </div>
+        <div class="affirmation-box">
+          <div class="aff-label">🌸 Afirmação final</div>
+          <p>"Eu me reconquistei. E daqui em diante, serei sempre minha maior aliada."</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================
+         PÁGINA 6 — ENCERRAMENTO
+    ======================== -->
+    <div class="page" id="page-6">
+      <div class="closing-page">
+        <div class="closing-inner">
+          <span style="font-size:4rem; display:block; margin-bottom:20px; position:relative; z-index:2;">🌸</span>
+          <h2 style="position:relative; z-index:2;">Você chegou até aqui.<br/><em>Isso já é vitória.</em></h2>
+          <div class="closing-divider"></div>
+
+          <div class="letter-box">
+            <p>Há 30 dias, você abriu este workbook. Talvez com mãos trêmulas, talvez com dúvida, talvez com uma centelha de esperança que mal conseguia enxergar.</p>
+            <p>E aqui está você — do outro lado. Não curada de um golpe, porque a cura não funciona assim. Mas mais <em>inteira</em>. Mais consciente. Mais sua.</p>
+            <p>Cada página que você preencheu foi um ato de amor-próprio. Cada vez que você escreveu a verdade foi uma escolha por você mesma.</p>
+            <p>A jornada continua — mas agora você a caminha conhecendo melhor a mulher que você é. <em>E ela é extraordinária.</em></p>
+          </div>
+
+          <div class="closing-divider"></div>
+
+          <p style="color: rgba(255,255,255,0.5); font-size: 0.88rem; position:relative; z-index:2; line-height:1.7;">
+            Se precisar de apoio profissional, ligue para o<br/>
+            <strong style="color: #F2789F; font-size: 1.1rem;">180</strong> — Central de Atendimento à Mulher<br/>
+            Disponível 24h, gratuito, sigiloso.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /main -->
+
+  <script>
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const menuItems = document.querySelectorAll('.chapter-menu-item');
+    const chapterLabel = document.getElementById('chapterLabel');
+    const btnPrev = document.getElementById('btnPrev');
+    const btnNext = document.getElementById('btnNext');
+    const mbPrev = document.getElementById('mbPrev');
+    const mbNext = document.getElementById('mbNext');
+    const progressFill = document.getElementById('progressFill');
+    const progressPct = document.getElementById('progressPct');
+    const overlay = document.getElementById('chapterMenuOverlay');
+
+    const labels = [
+      'Capa',
+      'Como Usar',
+      'Semana 1 — Reconhecendo a Dor',
+      'Semana 2 — Liberando a Culpa',
+      'Semana 3 — Redescobrindo Você',
+      'Semana 4 — A Nova Você',
+      'Encerramento'
+    ];
+
+    let current = 0;
+
+    function goTo(index) {
+      pages[current].classList.remove('active');
+      navLinks[current].classList.remove('active');
+      menuItems[current].classList.remove('active');
+
+      current = index;
+
+      pages[current].classList.add('active');
+      navLinks[current].classList.add('active');
+      menuItems[current].classList.add('active');
+
+      chapterLabel.textContent = labels[current];
+
+      btnPrev.disabled = current === 0;
+      btnNext.disabled = current === pages.length - 1;
+      mbPrev.disabled  = current === 0;
+      mbNext.disabled  = current === pages.length - 1;
+
+      const pct = Math.round((current / (pages.length - 1)) * 100);
+      progressFill.style.width = pct + '%';
+      progressPct.textContent  = pct + '%';
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextPage() { if (current < pages.length - 1) goTo(current + 1); }
+    function prevPage() { if (current > 0) goTo(current - 1); }
+
+    function openChapterMenu() {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeChapterMenu() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Swipe para navegar (mobile)
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    document.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    document.addEventListener('touchend', function(e) {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      const dy = e.changedTouches[0].screenY - touchStartY;
+      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 60) {
+        if (dx < 0) nextPage();
+        else prevPage();
+      }
+    }, { passive: true });
+
+    // Fallback :has() para chips
+    document.querySelectorAll('.mood-chip input[type="checkbox"]').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        this.closest('.mood-chip').classList.toggle('selected', this.checked);
+      });
+    });
+  </script>
+</body>
+</html>
