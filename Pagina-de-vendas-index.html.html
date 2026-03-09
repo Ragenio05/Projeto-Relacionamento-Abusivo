@@ -179,54 +179,17 @@
     .book-cover {
       width: 280px;
       height: 380px;
-      background: linear-gradient(160deg, #8B1A4A 0%, #C0376A 40%, #7B3F8C 100%);
       border-radius: 4px 12px 12px 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 24px;
-      text-align: center;
       position: relative;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.15);
     }
 
-    .book-cover::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
-
-    .book-cover-icon {
-      font-size: 3.5rem;
-      margin-bottom: 16px;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-    }
-
-    .book-cover-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .book-cover-sub {
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .book-cover-line {
-      width: 40px;
-      height: 2px;
-      background: rgba(255,255,255,0.4);
-      margin: 12px auto;
-      border-radius: 2px;
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .book-spine {
@@ -244,7 +207,7 @@
     /* ===== PROBLEMA ===== */
     .problema {
       background: linear-gradient(180deg, var(--rosa-pale) 0%, var(--creme) 100%);
-      padding: 80px 0;
+      padding: 56px 0;
     }
 
     .problema-grid {
@@ -314,7 +277,7 @@
 
     /* ===== SINAIS ===== */
     .sinais {
-      padding: 100px 0;
+      padding: 56px 0;
       background: var(--creme);
     }
 
@@ -397,7 +360,7 @@
     /* ===== ALERTAS ===== */
     .alertas {
       background: linear-gradient(135deg, #1A1A2E, #2D0A1E);
-      padding: 90px 0;
+      padding: 56px 0;
       position: relative;
       overflow: hidden;
     }
@@ -472,7 +435,7 @@
 
     /* ===== COMO MERECE SER TRATADA ===== */
     .merece {
-      padding: 100px 0;
+      padding: 56px 0;
       background: var(--rosa-pale);
     }
 
@@ -537,7 +500,7 @@
 
     /* ===== DEPOIMENTOS ===== */
     .depoimentos {
-      padding: 90px 0;
+      padding: 56px 0;
       background: var(--creme);
     }
 
@@ -597,7 +560,7 @@
 
     /* ===== OFERTA DO EBOOK ===== */
     .oferta {
-      padding: 100px 0;
+      padding: 60px 0;
       background: linear-gradient(135deg, #1A1A2E 0%, #2D0A1E 60%, #1A1A2E 100%);
       position: relative;
       overflow: hidden;
@@ -654,21 +617,18 @@
     .ebook-3d {
       width: 200px;
       height: 270px;
-      background: linear-gradient(160deg, #8B1A4A 0%, #C0376A 45%, #7B3F8C 100%);
       border-radius: 3px 10px 10px 3px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px 16px;
-      text-align: center;
       box-shadow: -6px 6px 0 rgba(0,0,0,0.3), -12px 12px 0 rgba(0,0,0,0.2), 0 20px 50px rgba(192,55,106,0.4);
       flex-shrink: 0;
+      overflow: hidden;
     }
 
-    .ebook-3d .icon { font-size: 2.5rem; margin-bottom: 12px; }
-    .ebook-3d .title { font-family: 'Playfair Display', serif; font-size: 1rem; color: #fff; font-weight: 700; margin-bottom: 6px; }
-    .ebook-3d .sub { font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase; }
+    .ebook-3d img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     .ebook-conteudo { text-align: left; }
     .ebook-conteudo h3 { color: #fff; font-size: 1.3rem; margin-bottom: 20px; }
@@ -794,7 +754,7 @@
 
     /* ===== GARANTIA ===== */
     .garantia {
-      padding: 70px 0;
+      padding: 48px 0;
       background: var(--rosa-pale);
     }
 
@@ -826,7 +786,7 @@
     .garantia-box p { color: var(--cinza); font-size: 1rem; }
 
     /* ===== FAQ ===== */
-    .faq { padding: 90px 0; background: var(--creme); }
+    .faq { padding: 56px 0; background: var(--creme); }
 
     .faq-list { max-width: 720px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 16px; }
 
@@ -883,7 +843,7 @@
     /* ===== CTA FINAL ===== */
     .cta-final {
       background: linear-gradient(135deg, var(--rosa), var(--roxo));
-      padding: 90px 0;
+      padding: 60px 0;
       text-align: center;
     }
 
@@ -941,6 +901,17 @@
       .ebook-preview      { flex-direction: column; align-items: center; }
       .ebook-conteudo     { text-align: center; }
       .garantia-box       { flex-direction: column; text-align: center; padding: 36px 24px; }
+
+      /* Espaçamento entre seções reduzido para mobile */
+      .problema    { padding: 40px 0; }
+      .sinais      { padding: 40px 0; }
+      .alertas     { padding: 40px 0; }
+      .merece      { padding: 40px 0; }
+      .depoimentos { padding: 40px 0; }
+      .oferta      { padding: 48px 0; }
+      .garantia    { padding: 32px 0; }
+      .faq         { padding: 40px 0; }
+      .cta-final   { padding: 48px 0; }
     }
 
     @media (max-width: 600px) {
@@ -1098,14 +1069,17 @@
     .ck-book-mini {
       width: 64px;
       height: 88px;
-      background: linear-gradient(160deg, #8B1A4A 0%, #C0376A 45%, #7B3F8C 100%);
       border-radius: 2px 8px 8px 2px;
       box-shadow: -3px 3px 0 rgba(0,0,0,0.3), -6px 6px 0 rgba(0,0,0,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
       flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .ck-book-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .ck-product-info h4 {
@@ -1862,11 +1836,7 @@
           <div class="book">
             <div class="book-spine"></div>
             <div class="book-cover">
-              <span class="book-cover-icon">💜</span>
-              <div class="book-cover-line"></div>
-              <p class="book-cover-title">Você Merece<br/>Ser Amada</p>
-              <div class="book-cover-line"></div>
-              <span class="book-cover-sub">Guia Completo para Reconhecer<br/>e Sair do Abuso</span>
+              <img src="images/capa-produto.jpg" alt="Capa do Ebook Você Merece Ser Amada" />
             </div>
           </div>
         </div>
@@ -2268,9 +2238,7 @@
 
         <div class="ebook-preview">
           <div class="ebook-3d">
-            <div class="icon">💜</div>
-            <div class="title">Você Merece Ser Amada</div>
-            <div class="sub">Guia Completo · E-book</div>
+            <img src="images/capa-produto.jpg" alt="Capa do Ebook Você Merece Ser Amada" />
           </div>
 
           <div class="ebook-conteudo">
@@ -2482,7 +2450,7 @@
           <div class="ck-product-card">
             <div class="ck-product-label">📖 E-book Completo</div>
             <div class="ck-product-row">
-              <div class="ck-book-mini">💜</div>
+              <div class="ck-book-mini"><img src="images/capa-produto.jpg" alt="Capa do Ebook" /></div>
               <div class="ck-product-info">
                 <h4>Você Merece Ser Amada</h4>
                 <p class="ck-product-price"><s>R$ 97,00</s> R$ 27,00 <span style="background:var(--rosa);color:#fff;font-size:0.65rem;font-weight:700;padding:2px 7px;border-radius:100px;">72% OFF</span></p>
