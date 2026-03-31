@@ -1627,9 +1627,113 @@
       .ck-pay-tabs { grid-template-columns: repeat(3, 1fr); font-size: 0.75rem; }
       .ck-pay-tab { padding: 10px 4px; }
     }
+
+    /* ===== VIDEO GATE ===== */
+    #video-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: #0a0509;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      overflow-y: auto;
+    }
+    #video-gate.vg-hidden { display: none; }
+    .vg-inner {
+      width: 100%;
+      max-width: 820px;
+      text-align: center;
+    }
+    .vg-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.7rem;
+      color: #F2789F;
+      margin-bottom: 6px;
+    }
+    .vg-subtitle {
+      color: #c9b8c0;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .vg-video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+    .vg-video-wrap video {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .vg-progress-track {
+      height: 8px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .vg-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #c0506e, #F2789F);
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.4s linear;
+    }
+    .vg-timer {
+      color: #c9b8c0;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+    .vg-btn {
+      display: none;
+      padding: 16px 48px;
+      background: linear-gradient(135deg, #c0506e, #F2789F);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 24px rgba(192,80,110,0.4);
+      animation: pulse 2s infinite;
+    }
+    .vg-btn.vg-btn-show { display: inline-block; }
+    #site-content { display: none; }
   </style>
 </head>
 <body>
+
+  <!-- ==============================
+       VIDEO GATE
+  ============================== -->
+  <div id="video-gate">
+    <div class="vg-inner">
+      <div class="vg-title">Você Merece Ser Amada</div>
+      <p class="vg-subtitle">Assista ao vídeo para desbloquear o acesso ao conteúdo</p>
+      <div class="vg-video-wrap">
+        <video id="gateVideo" controls playsinline preload="metadata">
+          <source src="video-oferta.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="vg-progress-track">
+        <div class="vg-progress-fill" id="vgFill"></div>
+      </div>
+      <p class="vg-timer" id="vgTimer">Assista 2 minutos para desbloquear o conteúdo ↓</p>
+      <button class="vg-btn" id="vgBtn" onclick="unlockSite()">
+        Acessar o conteúdo completo →
+      </button>
+    </div>
+  </div>
+
+  <div id="site-content">
 
   <!-- BARRA TOPO -->
   <div class="top-bar">
@@ -2387,10 +2491,55 @@
     </div>
   </div>
 
+  </div><!-- /#site-content -->
+
   <!-- ==============================
        JAVASCRIPT (FAQ accordion)
   ============================== -->
   <script>
+    /* ===== VIDEO GATE ===== */
+    (function () {
+      var video    = document.getElementById('gateVideo');
+      var fill     = document.getElementById('vgFill');
+      var timerEl  = document.getElementById('vgTimer');
+      var btn      = document.getElementById('vgBtn');
+      var REQUIRED = 120; // 2 minutos em segundos
+      var watched  = 0;
+      var lastTime = -1;
+      var unlocked = false;
+
+      video.addEventListener('timeupdate', function () {
+        if (unlocked) return;
+        var t = video.currentTime;
+        // só conta progresso real (ignora scrubbing)
+        if (lastTime >= 0 && t > lastTime && (t - lastTime) < 2) {
+          watched += t - lastTime;
+        }
+        lastTime = t;
+
+        var pct = Math.min(watched / REQUIRED * 100, 100);
+        fill.style.width = pct + '%';
+
+        var remaining = Math.max(0, Math.ceil(REQUIRED - watched));
+        if (remaining > 0) {
+          var m = Math.floor(remaining / 60);
+          var s = remaining % 60;
+          timerEl.textContent = 'Faltam ' + m + ':' + (s < 10 ? '0' : '') + s + ' para desbloquear';
+        } else {
+          unlocked = true;
+          timerEl.textContent = '✓ Pronto! Você pode continuar.';
+          btn.classList.add('vg-btn-show');
+        }
+      });
+
+      window.unlockSite = function () {
+        document.getElementById('video-gate').classList.add('vg-hidden');
+        var sc = document.getElementById('site-content');
+        sc.style.display = 'block';
+        window.scrollTo(0, 0);
+      };
+    })();
+
     /* ===== FAQ Accordion ===== */
     document.querySelectorAll('.faq-q').forEach(btn => {
       btn.addEventListener('click', () => {
